@@ -1,87 +1,123 @@
 # technical-writer
 
-A Claude Code plugin whose single skill writes and reviews technical documents in the structure their audience expects.
+A Claude Code plugin that writes and reviews technical documents in the structure their audience expects.
 
-## Overview
+[![Release](https://img.shields.io/github/v/tag/ryanmat/technical-writer?label=release&sort=semver)](https://github.com/ryanmat/technical-writer/tags)
+[![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.12%2B-blue)](pyproject.toml)
+[![Claude Code plugin](https://img.shields.io/badge/Claude%20Code-plugin-black)](https://code.claude.com/docs/en/plugins)
+[![Document types](https://img.shields.io/badge/document%20types-24-informational)](docs/document-types.md)
+[![Audiences](https://img.shields.io/badge/audiences-7-informational)](docs/document-types.md#the-seven-audiences)
 
-Ask Claude Code for documentation and the skill first names the document type (one of 24, from a task topic to a model card or a privacy notice), takes one audience from a fixed set of seven, and loads the type's template. The template's YAML front matter fixes the required sections, the evidence each section must carry, the length cap per audience, and the prose rules; the skill drafts into it, writes `[UNVERIFIED: what is missing]` wherever its sources give no fact, and runs a deterministic structural checker over the draft before it answers. The same checker grades the eval suite, so what the skill promises is what the evals measure. In review mode it checks an existing document against the same rules and returns ranked findings.
+You name the kind of page and the reader; the skill picks one of 24 document types, loads that type's template, drafts into its required sections, marks every fact its sources do not give, and checks the structure before it answers. It covers user documentation, engineering and architecture, API reference text, AI governance, security, and privacy.
 
-Six domains are covered: user documentation, engineering and architecture, API reference text, AI governance, security, and privacy. The templates take their structure from published standards (the Grafana Writers' Toolkit, MADR, the Hugging Face model card, the OpenSSF disclosure guide, WP260, and the ICO's DPIA steps, among others); `skills/technical-writer/references/attribution.md` records each source and its license.
+**Start with the documentation:** [install](docs/install.md), [how it works](docs/how-it-works.md), [document types and audiences](docs/document-types.md), [troubleshooting](docs/troubleshooting.md), [releasing](docs/releasing.md).
 
-## Setup
+## Get started
 
-Install by tag; the current tag is `v0.2.2`:
+Inside Claude Code, add the marketplace at the release tag and install the plugin:
 
-    claude plugin marketplace add ryanmat/technical-writer@v0.2.2
-    claude plugin install technical-writer@technical-writer
+    /plugin marketplace add ryanmat/technical-writer@v0.2.3
+    /plugin install technical-writer@technical-writer
 
-For a development checkout:
+The same two commands work from a shell as `claude plugin marketplace add ...` and `claude plugin install ...`. Pin the tag; `main` is not an install target.
 
+Then ask for a document, with the source material attached or pasted:
+
+    Write a task topic for engineers on creating an alert rule in Relay, from these release notes.
+
+The reply opens with the type and audience it chose, the document follows, and the reply closes with every `[UNVERIFIED: ...]` marker left for you to fill. Anything the sources do not say comes back as a marker, never as a guess.
+
+## Example prompts
+
+The skill triggers on a verb (write, draft, structure, review) with a document type, a standard behind a type (MADR, model card, CVE, CVSS, WP260, DPIA), or an audience for one.
+
+    Draft an architecture decision record for choosing Postgres over DynamoDB for the queue backend. Here are the benchmark notes and the design doc.
+
+    I need a model card for our intent classifier, for downstream providers. The eval results and training notes are attached.
+
+    Turn this incident thread into a postmortem.
+
+    Write a runbook for consumer lag on the orders topic; the alert definition and the escalation list are below.
+
+    Draft a privacy notice for the account service, written for the people whose data it holds, from this data map.
+
+    Fill out an Annex IV technical file for the fraud model from these design docs; audience is the regulator.
+
+    Write a vulnerability advisory for this auth bypass; CVSS vector and affected versions are in the ticket.
+
+Review an existing document instead of writing one:
+
+    Review this README as a task topic and tell me what is missing.
+
+    Check this ADR against MADR and list the findings by severity.
+
+Ask for the classification alone:
+
+    What kind of doc should "docs for the new alert rule feature" be? Do not draft yet.
+
+## How it works
+
+- **One type, one audience.** Every request becomes one of 24 types across six domains, for one of seven audiences (engineer, operator, executive, regulator, auditor, data subject, downstream provider). The audience sets the register, the length cap, and how precise the numbers are.
+- **The template is the contract.** Each type has a template whose YAML front matter fixes the required sections in order, the evidence each section must carry, the caps per audience, and the prose rules. The templates take their structure from published standards: the Grafana Writers' Toolkit, MADR, the Hugging Face model card, the OpenSSF disclosure guide, WP260, the ICO's DPIA steps, and others listed with their licenses in [attribution.md](skills/technical-writer/references/attribution.md).
+- **No guessing.** A claim the sources do not support is written as `[UNVERIFIED: what is missing]`, inline, and listed in the reply.
+- **The checker is the grader.** `scripts/check_structure.py` reads the same front matter the skill drafts from, so the self-check and the eval graders cannot disagree about what a conforming document is.
+
+To run the checker yourself:
+
+    uv run python scripts/check_structure.py --template skills/technical-writer/references/templates/task.md --audience engineer draft.md
+
+It prints a JSON report and exits 0 when the document passes, 1 when it has findings, 2 when the checker did not run. `scripts/lint.sh <draft.md>` runs `vale` and `markdownlint` when they are on the path and reports which were missing; neither is required.
+
+## What the plugin does and does not do
+
+The skill reads the request, the files you attach, and its own reference files. It fetches nothing from the network, installs nothing, and modifies no source you give it. The scripts are standard-library Python; `vale` and `markdownlint` are optional and detected, never installed. The skill declines three document kinds that belong to other tools: README files, pull request bodies, and penetration test or assessment reports.
+
+## Evals
+
+Every case lives in its own directory under `evals/holdout/` (written once, never edited) or `evals/cases/`. A run is graded twice, by the case's own graders inside `claude plugin eval` and by the structural checker over the run's final text; a judge model scores the prose against [the rubric](evals/rubrics/prose.md), calibrated against hand-scored documents. A holdout case runs three times and passes at two of three; a regression case passes at half its runs. The release rule is a judge median of at least 4 with no run below 3 on Sonnet 5.5 and Opus 5.
+
+    uv run python evals/gate.py --tag holdout --model claude-sonnet-5-5 --max-cost-usd 10
+
+The v0.2.0 report ran every one of the 27 cases at two runs per model:
+
+| model | cases at bar | runs passed | judge median | judge rule | cost USD |
+|---|---|---|---|---|---|
+| `claude-sonnet-5-5` | 27 of 27 | 49 of 54 | 4 | PASS | 7.56 |
+| `claude-opus-5` | 26 of 27 | 47 of 54 | 4 | PASS | 45.41 |
+| `claude-haiku-5-5` | 21 of 27 | 38 of 54 | 4 | recorded | 2.08 |
+
+The reports, what each column means, and the reads behind the later releases are in [evals/reports](evals/reports/README.md).
+
+## Requirements
+
+- Claude Code with plugin support; the current release was tested with 2.1.302.
+- For development: Python 3.12 or later and [uv](https://github.com/astral-sh/uv).
+
+## Development
+
+    git clone https://github.com/ryanmat/technical-writer.git
+    cd technical-writer
     uv sync
     uv run pytest
     uv run sh -c 'set -e; ruff check .; ruff format --check .'
 
-## Usage
+```
+technical-writer/
+├── .claude-plugin/        plugin and marketplace manifests
+├── skills/technical-writer/
+│   ├── SKILL.md           the skill body
+│   └── references/        style rules, audiences, taxonomy, attribution, one template per type
+├── scripts/               check_structure.py (the checker), lint.sh (the linter wrapper)
+├── evals/                 cases, holdout, the gate, the grader, the judge, the release reports
+├── tests/                 pytest suite
+└── docs/                  user documentation, written by the skill itself
+```
 
-In Claude Code, name the document and the reader:
+## Reporting bugs and contributing
 
-    Write a task topic for engineers on creating an alert rule in Relay, from the attached release notes.
-
-The reply opens with the type and audience chosen, the document follows, and the reply closes with every `[UNVERIFIED: ...]` marker left for you to fill. To check a document yourself against a template:
-
-    uv run python scripts/check_structure.py --template skills/technical-writer/references/templates/task.md --audience engineer draft.md
-
-It prints a JSON report and exits 0 when the document passes, 1 when it has findings, 2 when the checker did not run. `scripts/lint.sh <draft.md>` runs `vale` and `markdownlint` over a draft when they are on the path and reports which were missing; neither is required.
-
-## Documentation
-
-- [Install the technical-writer plugin](docs/install.md)
-- [The technical-writer workflow](docs/how-it-works.md): classification, the audience parameter, templates, evidence markers, and the self-check.
-- [Document types and audiences](docs/document-types.md): the 24 types, the length caps, the seven audiences, and the marker.
-- [Troubleshoot checker findings](docs/troubleshooting.md): every finding code with its cause and fix.
-- [Release a new version](docs/releasing.md)
-
-## Evals
-
-Every eval case lives in its own directory under `evals/holdout/` (written once, never edited) or `evals/cases/`, and a run is graded twice: by the case's own graders inside `claude plugin eval`, and by the structural checker over each run's final text. A holdout case runs three times and passes when two of three runs pass; a regression case passes when at least half its runs do. The gate exits 0 when every case clears its bar, 1 when one falls below it, and 2 when the apparatus produced no verdict:
-
-    uv run python evals/gate.py --tag holdout --model claude-sonnet-5-5 --max-cost-usd 10
-
-Prose is scored separately by a judge model against `evals/rubrics/prose.md` (leads with the point, one idea per paragraph, no filler, register fits the audience; 1 to 5). The judge is calibrated against six holdout outputs scored by hand in `evals/calibration/scores.yaml`, and the test suite fails when the judge and the hand score differ by more than one point on any of them. The acceptance rule for a release is a median of at least 4 with no run below 3 on Sonnet 5.5 and Opus 5; Haiku 5.5 is recorded.
-
-### Results
-
-The v0.2.0 report, every one of the 27 cases at two runs per model, run from the working tree at `4b58de6` with the judge pinned to `claude-sonnet-5-5`. A holdout case is at its bar when both runs pass (at two runs a single miss fails the forced 2 of 3 bar) and a regression case when at least one does; a review case also needs full recall of its seeded defects. Cost is the CLI's list-price estimate for the arm.
-
-| model | report | cases at bar | runs passed | judge median | judge min | judge rule | cost USD |
-|---|---|---|---|---|---|---|---|
-| `claude-sonnet-5-5` | `20261018T195606Z-v0.2.0-sonnet` | 27 of 27 | 49 of 54 | 4 | 3 | PASS | 7.56 |
-| `claude-opus-5` | `20261018T195609Z-v0.2.0-opus` | 26 of 27 | 47 of 54 | 4 | 3 | PASS | 45.41 |
-| `claude-haiku-5-5` | `20261018T175333Z-v0.2.0-haiku` | 21 of 27 | 38 of 54 | 4 | 3 | recorded | 2.08 |
-
-The v0.2.1 and v0.2.2 releases changed documentation, packaging and the skill's out-of-scope
-list, not the templates; their holdout reads (`20261019T000208Z` and `20261019T001747Z`, Sonnet
-5.5) each passed 9 of 9 runs with a judge median of 4.
-
-The case notes under `evals/cases/` and `evals/holdout/` cite the intermediate reads taken while
-each case was written; those reports are kept in the build repository only, and this tree carries
-the release reads alone.
-
-The cases at bar and runs passed columns are the gate's own verdicts from its run log, which count a run only when the structural checker and the case's own graders both pass it; the committed report rows carry the checker layer alone, so they read higher (Opus 48 and Haiku 41 runs of 54).
-
-Opus 5's one case below its bar is the model-card holdout, where one run wrote the carbon figure's marker as grams of CO2eq beside the Carbon Emitted label and the deterministic marker grader reads for the word carbon inside the marker; accepted on that evidence. Haiku 5.5's six cases below bar are register and discipline slips: two replies wrapped in a code fence (zero H1), the vendor diligence sentence in both advisory runs, two-sentence summary lines, a three-sentence step, and no diagram statement in either architecture run.
-
-The Sonnet and Opus rows are reruns. The first Sonnet read (`20261018T175338Z-v0.2.0-sonnet`, kept under `evals/reports/`) missed the ADR holdout, where one run opened a guessed template path and drafted MADR from memory, and the privacy notice, where both runs wrote the unset support retention as a plain sentence instead of the marker. Between the reads the skill was pointed at the taxonomy's Template file column and the privacy notice template names an unset retention period as the marker. The v0.1.0 rows are in `20261018T014620Z-v0.1.0-sonnet`, `20261018T014618Z-v0.1.0-opus` and `20261018T014622Z-v0.1.0-haiku`; the calibration set's source run is `20261017T233258Z`.
-
-## Layout
-
-- `.claude-plugin/` - plugin and marketplace manifests.
-- `skills/technical-writer/` - the skill body, its reference files, and one template per document type.
-- `scripts/` - the structural checker shared by the skill and the evals, the linter wrapper, and the release export.
-- `evals/` - eval cases, the gate, the result grader, the prose judge, and the committed release reports.
-- `tests/` - pytest suite.
-- `docs/` - the user documentation, written by the skill itself for the engineer audience.
+File a [GitHub issue](https://github.com/ryanmat/technical-writer/issues) for a template that misreads its standard or a rule that flags a legitimate sentence, with the line that tripped it. Pull requests run the test suite and the linters above; a new template ships with its fixtures and an eval case, as every existing one did.
 
 ## License
 
-Apache-2.0; see [LICENSE](LICENSE). The sources the templates quote are listed with their licenses in `skills/technical-writer/references/attribution.md`.
+Apache-2.0; see [LICENSE](LICENSE). The sources the templates quote keep their own licenses, listed in [attribution.md](skills/technical-writer/references/attribution.md).

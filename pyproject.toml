@@ -1,6 +1,6 @@
 [project]
 name = "technical-writer"
-version = "0.2.2"
+version = "0.2.3"
 description = "A Claude Code skill that produces and reviews technical documents by template, with the structural checker and eval graders that gate them"
 requires-python = ">=3.12"
 dependencies = [

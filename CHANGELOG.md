@@ -6,6 +6,22 @@ All notable changes to this plugin are recorded here. The format follows
 
 ## [Unreleased]
 
+## [0.2.3] - 2026-10-18
+
+### Changed
+
+- The README is written for a reader arriving from the public repository: badges, a quick
+  start, eleven example prompts grouped by drafting, governance and security, review mode and
+  classification, and the contributing terms.
+
+- The v0.2.3 holdout read for Sonnet 5.5 under `evals/reports/` (`20261019T005942Z`): 9 of 9 runs at
+  bar, judge median 4.
+
+### Fixed
+
+- `docs/releasing.md` says the export runs from the build repository, which alone carries
+  `scripts/release.py`; the README layout line no longer lists the export under `scripts/`.
+
 ## [0.2.2] - 2026-10-18
 
 ### Fixed
@@ -105,7 +121,8 @@ card, with the checker and the eval harness that gate them.
   calibration set and per-model acceptance rule.
 - The v0.1.0 reports for Sonnet 5.5, Opus 5 and Haiku 5.5 under `evals/reports/`.
 
-[Unreleased]: https://github.com/ryanmat/technical-writer/compare/v0.2.2...HEAD
+[Unreleased]: https://github.com/ryanmat/technical-writer/compare/v0.2.3...HEAD
+[0.2.3]: https://github.com/ryanmat/technical-writer/releases/tag/v0.2.3
 [0.2.2]: https://github.com/ryanmat/technical-writer/releases/tag/v0.2.2
 [0.2.1]: https://github.com/ryanmat/technical-writer/releases/tag/v0.2.1
 [0.2.0]: https://github.com/ryanmat/technical-writer/releases/tag/v0.2.0

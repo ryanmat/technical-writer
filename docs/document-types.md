@@ -3,7 +3,7 @@
 
 The 24 document types the skill produces, the seven audiences it writes for, the length caps that pair them, and the marker it writes for a claim it cannot source.
 
-The tables hold for version 0.2.2 of the plugin. The values come from the template front matter under `skills/technical-writer/references/templates/`, which the structural checker reads, so a table here and the checker never disagree. A type's default audience applies when a request names none.
+The tables hold for version 0.2.3 of the plugin. The values come from the template front matter under `skills/technical-writer/references/templates/`, which the structural checker reads, so a table here and the checker never disagree. A type's default audience applies when a request names none.
 
 ## The 24 document types
 

@@ -1,0 +1,705 @@
+{
+  "header": {
+    "claude_version": "2.1.302",
+    "plugin_version": "0.2.3",
+    "git_head": "e0230063c232cbc8c2fc67a389d3c6607d70ed7b",
+    "git_dirty": true,
+    "label": null,
+    "result": "evals/results/20261019T005941Z/run.json",
+    "started_at": "2026-10-19T00:59:42.032Z",
+    "cost_usd": "1.1800099000000002",
+    "partial": false
+  },
+  "judge": {
+    "claude-sonnet-5-5": {
+      "runs": 9,
+      "unknown": 0,
+      "median": "4",
+      "min": 3,
+      "gated": true,
+      "verdict": "PASS"
+    }
+  },
+  "rows": [
+    {
+      "case": "adr--relay-queue-backend",
+      "model": "claude-sonnet-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 6
+      },
+      "cost_usd": "0.11136380000000001",
+      "grade": {
+        "template": "architecture decision record",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 18,
+            "heading": "Decision Drivers",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: no snippet gives a price or a cost estimate for either option] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 39,
+            "heading": "Consequences",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: whether Northwind Queue was tested at the expected 40 million messages a day] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 43,
+            "heading": "Confirmation",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: no snippet describes a production check, review, or measurement that confirms the rollout in 2.5] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 54,
+            "heading": "Northwind Queue",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: cost of running Northwind Queue] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 61,
+            "heading": "Managed cloud queue service",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: delivery semantics and whether it holds one hour of backlog without loss] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 62,
+            "heading": "Managed cloud queue service",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: price of the managed cloud queue service] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 6
+        },
+        "unverified_found": [
+          "cost"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "adr--relay-queue-backend",
+      "model": "claude-sonnet-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 4
+      },
+      "cost_usd": "0.1180757",
+      "grade": {
+        "template": "architecture decision record",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 18,
+            "heading": "Decision Drivers",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: cost of operating Northwind Queue and of the managed cloud queue service at 40 million messages a day] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 37,
+            "heading": "Consequences",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the staffing or effort this adds to the rotation] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 38,
+            "heading": "Consequences",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the message rate used in the soak test] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 54,
+            "heading": "Managed cloud queue service",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: delivery semantics and backlog retention of the managed service] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 4
+        },
+        "unverified_found": [
+          "cost"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "adr--relay-queue-backend",
+      "model": "claude-sonnet-5-5",
+      "run": 2,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 1
+      },
+      "cost_usd": "0.11662519999999998",
+      "grade": {
+        "template": "architecture decision record",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 19,
+            "heading": "Decision Drivers",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: no price or cost estimate for either option appears in the sources] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 1
+        },
+        "unverified_found": [
+          "cost"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "model-card--relay-intent-classifier",
+      "model": "claude-sonnet-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 7
+      },
+      "cost_usd": "0.22142810000000002",
+      "grade": {
+        "template": "model card",
+        "audience": "downstream provider",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 20,
+            "heading": "Direct Use",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the registry entry and run log give no input limit] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 20,
+            "heading": "Direct Use",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the sources do not list them] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 46,
+            "heading": "How to Get Started with the Model",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the sources give the load call only, not the prediction call or its output format] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 95,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the run log gives the count but not the GPU model] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 97,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the run log names no provider] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 98,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the run log names no region] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 99,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: no carbon figure was measured or supplied, and none is estimated here] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 7
+        },
+        "unverified_found": [
+          "carbon",
+          "provider"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 5,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "model-card--relay-intent-classifier",
+      "model": "claude-sonnet-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 6
+      },
+      "cost_usd": "0.1397508",
+      "grade": {
+        "template": "model card",
+        "audience": "downstream provider",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 20,
+            "heading": "Direct Use",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: maximum input length, output format, the names of the twelve labels, and inference hardware requirements are not in the supplied sources] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 44,
+            "heading": "How to Get Started with the Model",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the call that classifies a message and the shape of its output are not in the supplied sources] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 95,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: GPU model is not in the supplied sources] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 97,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: provider is not in the supplied sources] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 98,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: region is not in the supplied sources] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 99,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: no carbon figure is in the supplied sources, and none is estimated] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 6
+        },
+        "unverified_found": [
+          "carbon",
+          "provider"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "model-card--relay-intent-classifier",
+      "model": "claude-sonnet-5-5",
+      "run": 2,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 7
+      },
+      "cost_usd": "0.13773280000000002",
+      "grade": {
+        "template": "model card",
+        "audience": "downstream provider",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 30,
+            "heading": "Bias, Risks, and Limitations",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the cost of a misrouted message and any bias analysis beyond language and channel are not in the sources] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 35,
+            "heading": "Recommendations",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the sources give the bias but no tested threshold or review rule for short chat messages] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 49,
+            "heading": "How to Get Started with the Model",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the call that classifies a message, its output format, and the score field are not in the sources] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 98,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the GPU model is not in the sources] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 100,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the compute provider is not in the sources] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 101,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the region is not in the sources] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 102,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: no carbon figure is in the sources, and none is estimated here] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 7
+        },
+        "unverified_found": [
+          "carbon",
+          "provider"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "task--relay-alert-rule",
+      "model": "claude-sonnet-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 3
+      },
+      "cost_usd": "0.11792899999999999",
+      "grade": {
+        "template": "task",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 8,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the permission or role that grants it] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 17,
+            "heading": "Steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: how Delivery gap is defined and whether it takes a threshold] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 20,
+            "heading": "Steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: what the screen shows after saving, and where the **Normal** state appears] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 3
+        },
+        "unverified_found": [
+          "permission"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "task--relay-alert-rule",
+      "model": "claude-sonnet-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 6
+      },
+      "cost_usd": "0.1046806",
+      "grade": {
+        "template": "task",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 8,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the permission or role that grants it] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 9,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the unit and range of the **Delivery gap** value] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 15,
+            "heading": "Steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the menu path to the screen] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 18,
+            "heading": "Steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: whether **Delivery gap** is chosen from a list and where its threshold is set] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 22,
+            "heading": "Steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: that the rule is listed there, and what the **Normal** state means for a new rule] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 26,
+            "heading": "Next steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: where the rule's state is displayed, where a fired alert is sent, and how to test it] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 6
+        },
+        "unverified_found": [
+          "permission"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "task--relay-alert-rule",
+      "model": "claude-sonnet-5-5",
+      "run": 2,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 3
+      },
+      "cost_usd": "0.11242390000000003",
+      "grade": {
+        "template": "task",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 8,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the permission or role that grants it] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 18,
+            "heading": "Steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: how the length of the gap is set and in what unit] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 20,
+            "heading": "Steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: what the screen shows after saving, and what the **Normal** state means for the rule] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 3
+        },
+        "unverified_found": [
+          "permission"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 3,
+      "judged": true,
+      "pass": true
+    }
+  ]
+}

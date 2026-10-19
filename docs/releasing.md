@@ -6,7 +6,9 @@ Cut a tagged release of the plugin and export it to the public repository the in
 ## Before you begin
 
 - You have `uv` and Python 3.12 or later, the floor `pyproject.toml` sets, and the test suite passes on `main`.
-- You have push permission to the public repository, `ryanmat/technical-writer`, and to the repository this checkout tracks.
+- You work from a checkout of the build repository, which carries `scripts/release.py`; the public
+  repository does not ship the export script.
+- You have push permission to the public repository, `ryanmat/technical-writer`, and to the build repository.
 - The eval gate spends money: the full Sonnet 5.5 report over the 27 cases cost 7.56 USD at v0.2.0, and the gate stops at the ceiling `--max-cost-usd` sets.
 
 ## Steps
@@ -41,7 +43,7 @@ To release a version:
    git push origin main v<VERSION>
    ```
 
-7. Export the tagged tree into a clean clone of the public repository. The script prints the public commit it made and exits 0; exit 1 names a file that carries a private identifier, and nothing is written.
+7. Export the tagged tree into a clean clone of the public repository, from the build repository checkout. The script prints the public commit it made and exits 0; exit 1 names a file that carries a private identifier, and nothing is written.
 
    ```bash
    uv run python scripts/release.py --tag v<VERSION> --public <PUBLIC_CLONE>
