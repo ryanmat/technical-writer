@@ -9,7 +9,7 @@ A Claude plugin that writes and reviews technical documents.
 [![Document types](https://img.shields.io/badge/document%20types-24-informational)](docs/document-types.md)
 [![Audiences](https://img.shields.io/badge/audiences-7-informational)](docs/document-types.md#the-seven-audiences)
 
-You name the kind of page and the reader; the skill picks one of 24 document types, loads that type's template, drafts into its required sections, marks every fact its sources do not give, and checks the structure before it answers. It covers user documentation, engineering and architecture, API reference text, AI governance, security, and privacy.
+Name the kind of page and the reader and the skill picks one of 24 document types, loads that type's template, drafts into its required sections, marks every fact its sources do not give, and checks the structure before it answers. It covers user documentation, engineering and architecture, API reference text, AI governance, security, and privacy.
 
 **Start with the documentation:** [install](docs/install.md), [how it works](docs/how-it-works.md), [document types and audiences](docs/document-types.md), [troubleshooting](docs/troubleshooting.md), [releasing](docs/releasing.md).
 
