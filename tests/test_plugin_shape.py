@@ -43,7 +43,7 @@ def test_version_is_identical_across_the_three_files():
     plugin_version = _plugin()["version"]
     marketplace_version = _marketplace()["plugins"][0]["version"]
     pyproject_version = _pyproject()["project"]["version"]
-    assert plugin_version == "0.2.3"
+    assert plugin_version == "0.2.4"
     assert plugin_version == marketplace_version == pyproject_version
 
 

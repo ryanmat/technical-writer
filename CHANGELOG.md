@@ -6,6 +6,15 @@ All notable changes to this plugin are recorded here. The format follows
 
 ## [Unreleased]
 
+## [0.2.4] - 2026-10-18
+
+### Changed
+
+- The README's how-it-works section is prose instead of labeled bullets, the install block
+  stands alone, and the Claude Code badge and the Requirements section are gone.
+- The v0.2.4 holdout read for Sonnet 5.5 under `evals/reports/` (`20261019T013040Z`): 9 of 9 runs at
+  bar, judge median 4.
+
 ## [0.2.3] - 2026-10-18
 
 ### Changed
@@ -121,7 +130,8 @@ card, with the checker and the eval harness that gate them.
   calibration set and per-model acceptance rule.
 - The v0.1.0 reports for Sonnet 5.5, Opus 5 and Haiku 5.5 under `evals/reports/`.
 
-[Unreleased]: https://github.com/ryanmat/technical-writer/compare/v0.2.3...HEAD
+[Unreleased]: https://github.com/ryanmat/technical-writer/compare/v0.2.4...HEAD
+[0.2.4]: https://github.com/ryanmat/technical-writer/releases/tag/v0.2.4
 [0.2.3]: https://github.com/ryanmat/technical-writer/releases/tag/v0.2.3
 [0.2.2]: https://github.com/ryanmat/technical-writer/releases/tag/v0.2.2
 [0.2.1]: https://github.com/ryanmat/technical-writer/releases/tag/v0.2.1

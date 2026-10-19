@@ -14,9 +14,9 @@ Every one of the 27 cases at two runs per model, run from the working tree at `4
 | `claude-opus-5` | `20261018T195609Z-v0.2.0-opus` | 26 of 27 | 47 of 54 | 4 | 3 | PASS | 45.41 |
 | `claude-haiku-5-5` | `20261018T175333Z-v0.2.0-haiku` | 21 of 27 | 38 of 54 | 4 | 3 | recorded | 2.08 |
 
-The v0.2.1, v0.2.2 and v0.2.3 releases changed documentation, packaging and the skill's
-out-of-scope list, not the templates; their holdout reads (`20261019T000208Z`,
-`20261019T001747Z` and `20261019T005942Z`, Sonnet 5.5) each passed 9 of 9 runs with a judge median of 4.
+The v0.2.1 to v0.2.4 releases changed documentation, packaging and the skill's out-of-scope
+list, not the templates; their holdout reads (`20261019T000208Z`, `20261019T001747Z`,
+`20261019T005942Z` and `20261019T013040Z`, Sonnet 5.5) each passed 9 of 9 runs with a judge median of 4.
 
 The case notes under `evals/cases/` and `evals/holdout/` cite the intermediate reads taken while
 each case was written; those reports are kept in the build repository only, and this tree carries
