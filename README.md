@@ -1,6 +1,6 @@
 # technical-writer
 
-A Claude Code plugin that writes and reviews technical documents in the structure their audience expects.
+A Claude Code plugin that writes and reviews technical documents.
 
 [![Release](https://img.shields.io/github/v/tag/ryanmat/technical-writer?label=release&sort=semver)](https://github.com/ryanmat/technical-writer/tags)
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](LICENSE)
