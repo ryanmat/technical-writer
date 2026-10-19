@@ -43,11 +43,11 @@ def test_version_is_identical_across_the_three_files():
     plugin_version = _plugin()["version"]
     marketplace_version = _marketplace()["plugins"][0]["version"]
     pyproject_version = _pyproject()["project"]["version"]
-    assert plugin_version == "0.2.1"
+    assert plugin_version == "0.2.2"
     assert plugin_version == marketplace_version == pyproject_version
 
 
-def test_pyproject_matches_the_rm_agents_layout():
+def test_pyproject_matches_the_plugin_layout():
     pyproject = _pyproject()
     project = pyproject["project"]
     assert project["requires-python"] == ">=3.12"

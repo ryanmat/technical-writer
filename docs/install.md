@@ -5,7 +5,7 @@ Install the plugin into Claude Code from its tagged release, or set up the repos
 
 ## Before you begin
 
-- You run Claude Code with plugin support. The v0.2.1 release was tested with Claude Code 2.1.302.
+- You run Claude Code with plugin support. The v0.2.2 release was tested with Claude Code 2.1.302.
 - You can reach github.com from the machine, since the marketplace command clones the repository at the tag.
 - For development only: you have `uv` installed and Python 3.12 or later, the floor `pyproject.toml` sets.
 
@@ -18,7 +18,7 @@ To install the plugin:
 1. Register the marketplace at the release tag.
 
    ```bash
-   claude plugin marketplace add ryanmat/technical-writer@v0.2.1
+   claude plugin marketplace add ryanmat/technical-writer@v0.2.2
    ```
 
 2. Install the plugin from it.

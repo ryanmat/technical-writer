@@ -6,6 +6,17 @@ All notable changes to this plugin are recorded here. The format follows
 
 ## [Unreleased]
 
+## [0.2.2] - 2026-10-18
+
+### Fixed
+
+- The release tooling, `scripts/release.py` and its test, stays in the build repository: the
+  two files spell the private identifiers out, and 0.2.1 had exported them under an exemption.
+- Nine internal pointers that survived the 0.2.1 strip in case notes and one grader are gone,
+  and the release scan now also looks for the maintainer's first name and the build tooling.
+- The release scan decodes every file with replacement instead of skipping one it cannot
+  decode, so a file in another encoding is scanned like the rest; a latin-1 test covers it.
+
 ## [0.2.1] - 2026-10-18
 
 The public release: the plugin is installed from the public repository `ryanmat/technical-writer`,
@@ -94,7 +105,8 @@ card, with the checker and the eval harness that gate them.
   calibration set and per-model acceptance rule.
 - The v0.1.0 reports for Sonnet 5.5, Opus 5 and Haiku 5.5 under `evals/reports/`.
 
-[Unreleased]: https://github.com/ryanmat/technical-writer/compare/v0.2.1...HEAD
+[Unreleased]: https://github.com/ryanmat/technical-writer/compare/v0.2.2...HEAD
+[0.2.2]: https://github.com/ryanmat/technical-writer/releases/tag/v0.2.2
 [0.2.1]: https://github.com/ryanmat/technical-writer/releases/tag/v0.2.1
 [0.2.0]: https://github.com/ryanmat/technical-writer/releases/tag/v0.2.0
 [0.1.0]: https://github.com/ryanmat/technical-writer/releases/tag/v0.1.0

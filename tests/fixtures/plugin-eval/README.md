@@ -14,8 +14,8 @@ Run on 2026-10-17 with Claude Code 2.1.301, through an outer eval gate, which st
 cases only from below the plugin it targets:
 
 ```text
-python3 evals/estate/gate.py --target skill:humanize --case humanize--embedded-mode \
-  --runs 1 --max-cost-usd 0.50 --tag humanize --results-dir <scratch> --ledger <scratch>/ledger.jsonl
+<outer gate> --target skill:<SKILL> --case <CASE> --runs 1 --max-cost-usd 0.50 \
+  --results-dir <scratch> --ledger <scratch>/ledger.jsonl
 ```
 
 The gate's underlying command carried `--no-publish --trust-plugin --keep-temp --ablation none

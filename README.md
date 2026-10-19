@@ -10,9 +10,9 @@ Six domains are covered: user documentation, engineering and architecture, API r
 
 ## Setup
 
-Install by tag; the current tag is `v0.2.1`:
+Install by tag; the current tag is `v0.2.2`:
 
-    claude plugin marketplace add ryanmat/technical-writer@v0.2.1
+    claude plugin marketplace add ryanmat/technical-writer@v0.2.2
     claude plugin install technical-writer@technical-writer
 
 For a development checkout:
@@ -59,9 +59,13 @@ The v0.2.0 report, every one of the 27 cases at two runs per model, run from the
 | `claude-opus-5` | `20261018T195609Z-v0.2.0-opus` | 26 of 27 | 47 of 54 | 4 | 3 | PASS | 45.41 |
 | `claude-haiku-5-5` | `20261018T175333Z-v0.2.0-haiku` | 21 of 27 | 38 of 54 | 4 | 3 | recorded | 2.08 |
 
-The v0.2.1 release changed documentation, packaging and the skill's out-of-scope list, not the
-templates; its holdout read (`20261019T000208Z`, Sonnet 5.5, 1.23 USD) passed 9 of 9 runs with a
-judge median of 4 and no run below 4.
+The v0.2.1 and v0.2.2 releases changed documentation, packaging and the skill's out-of-scope
+list, not the templates; their holdout reads (`20261019T000208Z` and `20261019T001747Z`, Sonnet
+5.5) each passed 9 of 9 runs with a judge median of 4.
+
+The case notes under `evals/cases/` and `evals/holdout/` cite the intermediate reads taken while
+each case was written; those reports are kept in the build repository only, and this tree carries
+the release reads alone.
 
 The cases at bar and runs passed columns are the gate's own verdicts from its run log, which count a run only when the structural checker and the case's own graders both pass it; the committed report rows carry the checker layer alone, so they read higher (Opus 48 and Haiku 41 runs of 54).
 

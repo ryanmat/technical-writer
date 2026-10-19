@@ -11,8 +11,8 @@ description: >-
   a standard behind one (MADR, the Hugging Face model card, CVE, CVSS, WP260, the ICO DPIA),
   or an audience for one. Classifies the type before drafting, takes one audience, fills the
   type's template with its evidence slots, marks every claim it cannot source as UNVERIFIED,
-  and checks the structure. Not for README or PR bodies, spec or plan files, or assessment
-  reports, which other skills own.
+  and checks the structure. Not for README or PR bodies or assessment reports, which other
+  skills own.
 ---
 
 # Technical writer

@@ -1,19 +1,18 @@
-# Description: Step 46 tests over the public documentation set: every page under docs/ declares
+# Description: Tests over the public documentation set: every page under docs/ declares
 # Description: its template and audience and passes the checker, and the public tree is clean.
-"""The public release's guards: the five user documentation pages written by the skill for
-the engineer audience, each passing ``check_document`` for the template its first line names;
-a scan over the tracked tree minus the private paths for the identifiers that belong to the
-build repository alone; and the LICENSE the README names."""
+"""The public release's guards that run in the public tree: the five user documentation
+pages written by the skill for the engineer audience, each passing ``check_document`` for the
+template its first line names, and the LICENSE the README names. The scan for identifiers that
+belong to the build repository alone lives in tests/test_release.py beside the export it
+guards, since both spell the identifiers out and stay private."""
 
 from __future__ import annotations
 
 import re
-import subprocess
 from pathlib import Path
 
 import pytest
 from check_structure import AUDIENCES, check_document, passes, templates_by_type
-from release import PRIVATE_IDENTIFIERS, SCAN_EXEMPT, is_private_path
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS_DIR = ROOT / "docs"
@@ -32,21 +31,6 @@ LOCAL_ONLY = {"lessons.md"}
 _PAGE_HEADER = re.compile(
     r"\A<!-- template: (?P<template>[a-z -]+?); audience: (?P<audience>[a-z ]+?) -->\n"
 )
-
-_PRIVATE = re.compile("|".join(PRIVATE_IDENTIFIERS))
-
-
-def tracked_public_files() -> list[Path]:
-    """Every tracked file outside the private paths, as the export would copy it."""
-    out = subprocess.run(
-        ["git", "ls-files", "-z"], cwd=ROOT, capture_output=True, check=True, text=True
-    )
-    files: list[Path] = []
-    for name in out.stdout.split("\0"):
-        if not name or is_private_path(name):
-            continue
-        files.append(ROOT / name)
-    return files
 
 
 def public_pages() -> list[Path]:
@@ -72,22 +56,6 @@ def test_each_page_declares_its_template_and_passes_the_checker(name: str):
     findings = check_document(text, spec, audience)
     blocking = [f.to_dict() for f in findings if f.severity != "info"]
     assert passes(findings), f"docs/{name} fails {template} for {audience}: {blocking}"
-
-
-def test_the_public_tree_carries_no_private_identifier():
-    hits: list[str] = []
-    for path in tracked_public_files():
-        if path.relative_to(ROOT).as_posix() in SCAN_EXEMPT:
-            continue
-        try:
-            text = path.read_text(encoding="utf-8")
-        except UnicodeDecodeError:
-            continue
-        for number, line in enumerate(text.splitlines(), start=1):
-            match = _PRIVATE.search(line)
-            if match:
-                hits.append(f"{path.relative_to(ROOT).as_posix()}:{number}: {match.group(0)}")
-    assert hits == [], "private identifiers in the public tree:\n" + "\n".join(hits)
 
 
 def test_license_exists_and_the_readme_names_it():
