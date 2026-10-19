@@ -1,0 +1,1545 @@
+{
+  "header": {
+    "claude_version": "2.1.302",
+    "plugin_version": "0.0.1",
+    "git_head": "120075f5ec6b60d5fd56c4d90b3279e591a1c1d5",
+    "git_dirty": true,
+    "label": "v0.1.0-haiku",
+    "result": "evals/results/20261018T014621Z-v0.1.0-haiku/run.json",
+    "started_at": "2026-10-18T01:46:22.017Z",
+    "cost_usd": "0.5902354100000001",
+    "partial": false
+  },
+  "judge": {
+    "claude-haiku-5-5": {
+      "runs": 18,
+      "unknown": 0,
+      "median": "4",
+      "min": 3,
+      "gated": false,
+      "verdict": "recorded"
+    }
+  },
+  "rows": [
+    {
+      "case": "concept--relay-routing-model",
+      "model": "claude-haiku-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 1
+      },
+      "cost_usd": "0.023544509999999998",
+      "grade": {
+        "template": "concept",
+        "audience": "engineer",
+        "passed": false,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 22,
+            "heading": "Unmatched messages",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the period a stream keeps an unmatched message] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 1
+        },
+        "unverified_found": [],
+        "unverified_missing": [
+          "retention"
+        ],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 5,
+      "judged": true,
+      "pass": false
+    },
+    {
+      "case": "concept--relay-routing-model",
+      "model": "claude-haiku-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 2
+      },
+      "cost_usd": "0.02867856",
+      "grade": {
+        "template": "concept",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 18,
+            "heading": "Route evaluation",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: whether route order changes which consumer groups receive a message] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 26,
+            "heading": "Unmatched messages",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the retention period] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 2
+        },
+        "unverified_found": [
+          "retention"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "multiple-task--relay-install-and-verify",
+      "model": "claude-haiku-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 2
+      },
+      "cost_usd": "0.03613908",
+      "grade": {
+        "template": "multiple-task procedure",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 50,
+            "heading": "Verify the agent is healthy",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the action to take in that case] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 52,
+            "heading": "Verify the agent is healthy",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the port value, the location of `agent.yaml`, and the client that sends the request] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 2
+        },
+        "unverified_found": [
+          "port"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "multiple-task--relay-install-and-verify",
+      "model": "claude-haiku-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 2
+      },
+      "cost_usd": "0.027963310000000005",
+      "grade": {
+        "template": "multiple-task procedure",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 13,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the path of agent.yaml on the host and the port value] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 41,
+            "heading": "Verify the Relay agent is healthy",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the command or tool that sends the GET request, and the host address to send it to] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 2
+        },
+        "unverified_found": [
+          "port"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "reference--relay-settings",
+      "model": "claude-haiku-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 1
+      },
+      "cost_usd": "0.030240270000000007",
+      "grade": {
+        "template": "reference",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 13,
+            "heading": "Settings",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the default for Delivery gap is not shown in the rule editor help text] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 1
+        },
+        "unverified_found": [
+          "default"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "reference--relay-settings",
+      "model": "claude-haiku-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 1
+      },
+      "cost_usd": "0.03244099999999999",
+      "grade": {
+        "template": "reference",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 13,
+            "heading": "Settings",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the default for Delivery gap is not shown in the rule editor help text] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 1
+        },
+        "unverified_found": [
+          "default"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "release-notes--relay-2-5-0",
+      "model": "claude-haiku-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 3
+      },
+      "cost_usd": "0.021264830000000005",
+      "grade": {
+        "template": "release notes",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 7,
+            "heading": "[2.5.0]",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: how a breaking change fits Semantic Versioning in release 2.5.0, which reserves incompatible changes for a major version] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 15,
+            "heading": "Changed",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the action a route owner must take to keep the 60 second interval] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 19,
+            "heading": "Fixed",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the issue or pull request that made this change] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 3
+        },
+        "unverified_found": [
+          "issue"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "release-notes--relay-2-5-0",
+      "model": "claude-haiku-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 1
+      },
+      "cost_usd": "0.021842600000000004",
+      "grade": {
+        "template": "release notes",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 19,
+            "heading": "Fixed",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the issue or pull request that made this change] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 1
+        },
+        "unverified_found": [
+          "issue"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 5,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "review--adr-superseded-without-link",
+      "model": "claude-haiku-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "cost_usd": "0.013115750000000002",
+      "grade": {
+        "template": "architecture decision record",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unverified_found": [],
+        "unverified_missing": [],
+        "defects_found": [
+          "SECTION_MISSING",
+          "EVIDENCE_MISSING",
+          "BANNED_PATTERN"
+        ],
+        "defects_missing": [],
+        "mode": "review",
+        "recall": {
+          "structural_found": 2,
+          "structural_total": 2,
+          "prose_found": 1,
+          "prose_total": 1
+        }
+      },
+      "error": null,
+      "judge": null,
+      "judged": false,
+      "pass": true
+    },
+    {
+      "case": "review--adr-superseded-without-link",
+      "model": "claude-haiku-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "cost_usd": "0.013524379999999999",
+      "grade": {
+        "template": "architecture decision record",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unverified_found": [],
+        "unverified_missing": [],
+        "defects_found": [
+          "SECTION_MISSING",
+          "EVIDENCE_MISSING",
+          "BANNED_PATTERN"
+        ],
+        "defects_missing": [],
+        "mode": "review",
+        "recall": {
+          "structural_found": 2,
+          "structural_total": 2,
+          "prose_found": 1,
+          "prose_total": 1
+        }
+      },
+      "error": null,
+      "judge": null,
+      "judged": false,
+      "pass": true
+    },
+    {
+      "case": "review--model-card-no-disaggregation",
+      "model": "claude-haiku-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "cost_usd": "0.011450260000000002",
+      "grade": {
+        "template": "model card",
+        "audience": "downstream provider",
+        "passed": true,
+        "findings": [],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unverified_found": [],
+        "unverified_missing": [],
+        "defects_found": [
+          "SECTION_MISSING",
+          "EVIDENCE_MISSING",
+          "BANNED_PATTERN"
+        ],
+        "defects_missing": [],
+        "mode": "review",
+        "recall": {
+          "structural_found": 2,
+          "structural_total": 2,
+          "prose_found": 1,
+          "prose_total": 1
+        }
+      },
+      "error": null,
+      "judge": null,
+      "judged": false,
+      "pass": true
+    },
+    {
+      "case": "review--model-card-no-disaggregation",
+      "model": "claude-haiku-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "cost_usd": "0.01266393",
+      "grade": {
+        "template": "model card",
+        "audience": "downstream provider",
+        "passed": true,
+        "findings": [],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unverified_found": [],
+        "unverified_missing": [],
+        "defects_found": [
+          "SECTION_MISSING",
+          "EVIDENCE_MISSING",
+          "BANNED_PATTERN"
+        ],
+        "defects_missing": [],
+        "mode": "review",
+        "recall": {
+          "structural_found": 2,
+          "structural_total": 2,
+          "prose_found": 1,
+          "prose_total": 1
+        }
+      },
+      "error": null,
+      "judge": null,
+      "judged": false,
+      "pass": true
+    },
+    {
+      "case": "review--task-missing-prereqs",
+      "model": "claude-haiku-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "cost_usd": "0.01172854",
+      "grade": {
+        "template": "task",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unverified_found": [],
+        "unverified_missing": [],
+        "defects_found": [
+          "SECTION_MISSING",
+          "EVIDENCE_MISSING",
+          "BANNED_PATTERN",
+          "BANNED_PATTERN"
+        ],
+        "defects_missing": [],
+        "mode": "review",
+        "recall": {
+          "structural_found": 2,
+          "structural_total": 2,
+          "prose_found": 2,
+          "prose_total": 2
+        }
+      },
+      "error": null,
+      "judge": null,
+      "judged": false,
+      "pass": true
+    },
+    {
+      "case": "review--task-missing-prereqs",
+      "model": "claude-haiku-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 0
+      },
+      "cost_usd": "0.01139418",
+      "grade": {
+        "template": "task",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 0
+        },
+        "unverified_found": [],
+        "unverified_missing": [],
+        "defects_found": [
+          "SECTION_MISSING",
+          "EVIDENCE_MISSING",
+          "BANNED_PATTERN",
+          "BANNED_PATTERN"
+        ],
+        "defects_missing": [],
+        "mode": "review",
+        "recall": {
+          "structural_found": 2,
+          "structural_total": 2,
+          "prose_found": 2,
+          "prose_total": 2
+        }
+      },
+      "error": null,
+      "judge": null,
+      "judged": false,
+      "pass": true
+    },
+    {
+      "case": "troubleshooting--relay-route-timeout",
+      "model": "claude-haiku-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 1
+      },
+      "cost_usd": "0.023401650000000038",
+      "grade": {
+        "template": "troubleshooting",
+        "audience": "engineer",
+        "passed": false,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 22,
+            "heading": "Resolution",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: whether restarting is a permanent fix or a workaround] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 1
+        },
+        "unverified_found": [],
+        "unverified_missing": [
+          "timeout"
+        ],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 3,
+      "judged": true,
+      "pass": false
+    },
+    {
+      "case": "troubleshooting--relay-route-timeout",
+      "model": "claude-haiku-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 2
+      },
+      "cost_usd": "0.032317460000000006",
+      "grade": {
+        "template": "troubleshooting",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 18,
+            "heading": "Cause",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the default route timeout value and how to view or change it] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 22,
+            "heading": "Resolution",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: whether restarting is a permanent fix or a workaround] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 2
+        },
+        "unverified_found": [
+          "timeout"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 3,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "tutorial--relay-first-route",
+      "model": "claude-haiku-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 7
+      },
+      "cost_usd": "0.028584500000000013",
+      "grade": {
+        "template": "tutorial",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 9,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the Relay version this tutorial was written against] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 10,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the permission or role required to create streams and routes] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 11,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: how to install the `relay` command-line tool and confirm that it runs] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 33,
+            "heading": "Create a route",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: what the Active status shows for a saved route] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 81,
+            "heading": "Next steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the next task topics for Northwind Relay, with the exact title of each linked page] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 85,
+            "heading": "Next steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the concept topic that explains streams and routes, with its exact title] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 86,
+            "heading": "Next steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the reference topic that lists the settings for streams and routes, with its exact title] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 7
+        },
+        "unverified_found": [
+          "version"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 3,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "tutorial--relay-first-route",
+      "model": "claude-haiku-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 1,
+        "low": 0,
+        "info": 11
+      },
+      "cost_usd": "0.03768406",
+      "grade": {
+        "template": "tutorial",
+        "audience": "engineer",
+        "passed": false,
+        "findings": [
+          {
+            "code": "SECTION_ORDER",
+            "severity": "medium",
+            "line": 11,
+            "heading": "Before you begin",
+            "rule": "sections in template order",
+            "message": "section 'Before you begin' comes after 'a tutorial section'; the template puts 'Before you begin' first"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 13,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the Relay version this tutorial was written against] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 14,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the permission or role required, which the sources do not name] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 15,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: how to install or access the relay command-line tool] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 21,
+            "heading": "Create the orders stream",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: how to open the Streams screen] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 24,
+            "heading": "Create the orders stream",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the confirmation the screen shows after a stream is saved] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 30,
+            "heading": "Create a route to the billing group",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: how to open the Routes screen] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 36,
+            "heading": "Create a route to the billing group",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the default value of **Active** and what it controls] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 61,
+            "heading": "See the message arrive",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: whether tail shows messages sent before it starts] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 77,
+            "heading": "Next steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: title of the task topic for the next route task] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 78,
+            "heading": "Next steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: title of the concept topic that explains streams, routes, and consumer groups] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 79,
+            "heading": "Next steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: title of the reference topic that lists stream and route settings] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 1,
+          "low": 0,
+          "info": 11
+        },
+        "unverified_found": [
+          "version"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": false
+    },
+    {
+      "case": "adr--relay-queue-backend",
+      "model": "claude-haiku-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 3
+      },
+      "cost_usd": "0.027906180000000006",
+      "grade": {
+        "template": "architecture decision record",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 19,
+            "heading": "Decision Drivers",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the price of operating Northwind Queue and the price of the managed cloud queue service] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 39,
+            "heading": "Consequences",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the cost comparison between the two options, from the Decision Drivers section] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 43,
+            "heading": "Confirmation",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the test that confirms the release 2.5 deployment meets the same requirements] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 3
+        },
+        "unverified_found": [
+          "cost"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 3,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "adr--relay-queue-backend",
+      "model": "claude-haiku-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 2
+      },
+      "cost_usd": "0.027437469999999985",
+      "grade": {
+        "template": "architecture decision record",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 19,
+            "heading": "Decision Drivers",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the cost of Northwind Queue and of the managed cloud queue service at 40 million messages a day] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 39,
+            "heading": "Consequences",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the operating cost of Northwind Queue against the managed cloud queue service] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 2
+        },
+        "unverified_found": [
+          "cost"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 3,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "model-card--relay-intent-classifier",
+      "model": "claude-haiku-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 10
+      },
+      "cost_usd": "0.03405637999999998",
+      "grade": {
+        "template": "model card",
+        "audience": "downstream provider",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 27,
+            "heading": "Bias, Risks, and Limitations",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: whether the billing skew on short chat messages originates in the labels or in the model predictions] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 29,
+            "heading": "Bias, Risks, and Limitations",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: cost or delay caused by a misrouted message] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 33,
+            "heading": "Recommendations",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: accuracy and macro F1 at the 0.6 top-score threshold] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 47,
+            "heading": "How to Get Started with the Model",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: example inference call and its output format] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 51,
+            "heading": "How to Get Started with the Model",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: maximum input length] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 52,
+            "heading": "How to Get Started with the Model",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: inference hardware and software requirements] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 103,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: GPU model] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 105,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: cloud provider] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 106,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: compute region] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 107,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: carbon emitted in grams of CO2eq] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 10
+        },
+        "unverified_found": [
+          "carbon",
+          "provider"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 5,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "model-card--relay-intent-classifier",
+      "model": "claude-haiku-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 13
+      },
+      "cost_usd": "0.03333966000000006",
+      "grade": {
+        "template": "model card",
+        "audience": "downstream provider",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 21,
+            "heading": "Direct Use",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: maximum input length in tokens or characters] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 22,
+            "heading": "Direct Use",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: label names and output schema] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 23,
+            "heading": "Direct Use",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: hardware and software required to run inference] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 34,
+            "heading": "Bias, Risks, and Limitations",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: evaluation on messages outside 2025] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 35,
+            "heading": "Bias, Risks, and Limitations",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: agreement or error rate for the support team's labels] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 36,
+            "heading": "Bias, Risks, and Limitations",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: cost or harm from a misrouted message] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 40,
+            "heading": "Recommendations",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: error rate and coverage at the 0.6 threshold] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 41,
+            "heading": "Recommendations",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: release checks and monitoring required of deployers] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 53,
+            "heading": "How to Get Started with the Model",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: example input, inference call, and expected output] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 102,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: GPU model] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 104,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: cloud provider] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 105,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: compute region] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 106,
+            "heading": "Environmental Impact",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: carbon emitted in grams of CO2eq] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 13
+        },
+        "unverified_found": [
+          "carbon",
+          "provider"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "task--relay-alert-rule",
+      "model": "claude-haiku-5-5",
+      "run": 0,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 6
+      },
+      "cost_usd": "0.025215819999999948",
+      "grade": {
+        "template": "task",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 8,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the permission or role that grants it] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 15,
+            "heading": "Steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: how to reach the Alert rules screen from the product] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 17,
+            "heading": "Steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: whether a field sets how long a gap must last before the rule fires] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 20,
+            "heading": "Steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: what the screen shows after the rule saves] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 24,
+            "heading": "Next steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: where the state appears and what **Normal** means] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 25,
+            "heading": "Next steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: a way to test the condition] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 6
+        },
+        "unverified_found": [
+          "permission"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    },
+    {
+      "case": "task--relay-alert-rule",
+      "model": "claude-haiku-5-5",
+      "run": 1,
+      "counts": {
+        "high": 0,
+        "medium": 0,
+        "low": 0,
+        "info": 5
+      },
+      "cost_usd": "0.024301030000000036",
+      "grade": {
+        "template": "task",
+        "audience": "engineer",
+        "passed": true,
+        "findings": [
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 8,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the permission or role that grants it] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 9,
+            "heading": "Before you begin",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: where to find stream names in Northwind Relay] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 15,
+            "heading": "Steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: the navigation path to the Alert rules screen] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 20,
+            "heading": "Steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: what the screen shows after the rule saves] awaits its owner"
+          },
+          {
+            "code": "EVIDENCE_UNVERIFIED",
+            "severity": "info",
+            "line": 24,
+            "heading": "Next steps",
+            "rule": "evidence slot filled or marked",
+            "message": "[UNVERIFIED: which status the rule shows while the stream delivers messages, and what Normal means] awaits its owner"
+          }
+        ],
+        "counts": {
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "info": 5
+        },
+        "unverified_found": [
+          "permission"
+        ],
+        "unverified_missing": [],
+        "defects_found": [],
+        "defects_missing": [],
+        "mode": "write",
+        "recall": null
+      },
+      "error": null,
+      "judge": 4,
+      "judged": true,
+      "pass": true
+    }
+  ]
+}

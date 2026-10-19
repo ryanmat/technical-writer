@@ -1,0 +1,8 @@
+{
+  "template": "design doc or RFC",
+  "audience": "engineer",
+  "unverified": [
+    "ceiling|upper bound|maximum gap|longest gap|limit on the gap|bound on the gap|cap on the gap|gap.{0,40}(?:cap|bound|ceiling)|(?:cap|bound|ceiling).{0,40}gap"
+  ],
+  "defects": []
+}

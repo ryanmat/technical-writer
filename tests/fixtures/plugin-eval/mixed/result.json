@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.301",
+  "startedAt": "2026-10-17T17:22:49.646Z",
+  "durationSeconds": 4,
+  "costUsd": 0.2,
+  "partial": false,
+  "suite": {
+    "root": ".",
+    "ablation": "none",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "caseFilter": "",
+    "tagFilters": [],
+    "threshold": 1,
+    "concurrency": 1,
+    "plugins": [
+      {
+        "name": "d6-estate",
+        "version": "0.1.0",
+        "path": "."
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "task--relay-alert-rule",
+      "dir": "evals/holdout/task--relay-alert-rule",
+      "source": "prose",
+      "promptMarkdown": "Use the technical-writer skill to write a task topic for engineers who run Northwind Relay. The task: create an alert rule that fires when a stream stops delivering messages. Return the finished Markdown document as your final message and nothing else.\n\nEverything you may state about the product is in the three snippets below. Do not add behavior, defaults, versions, or permissions they do not contain.\n\nUI strings, from the Alert rules screens:\n\n```text\nAlert rules\nNew alert rule\nCondition\nStream\nEvaluation interval\nDelivery gap\nSave rule\nNormal\n```\n\nRelease line, from the product's about dialog box:\n\n```text\nNorthwind Relay 2.4.0\nAlert rules are available from 2.4.0.\n```\n\nOne setting, from the rule editor's help text:\n\n```text\nEvaluation interval: how often the rule checks the stream, in seconds. Default: 60.\n```\n",
+      "runsPerCase": 1,
+      "timeoutSeconds": 600,
+      "maxTurns": 12,
+      "graders": [
+        {
+          "name": "headings",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "pattern": "^## Steps",
+            "flags": "m",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "no-em-dash",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "pattern": "\u2014",
+            "match": "not_contains"
+          }
+        },
+        {
+          "name": "prose-judge",
+          "type": "llm",
+          "weight": 1,
+          "config": {
+            "focus": "last_message",
+            "weight": 1
+          }
+        },
+        {
+          "name": "skill-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "input_match": "technical-writer"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.1,
+            "judgeCostUsd": 0,
+            "durationSeconds": 4,
+            "startedAt": "2026-10-17T17:22:49.738Z",
+            "error": null,
+            "tracePath": "trace-task.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "headings",
+                "passed": true,
+                "weight": 1,
+                "explanation": "passed",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "no-em-dash",
+                "passed": true,
+                "weight": 1,
+                "explanation": "passed",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "prose-judge",
+                "passed": true,
+                "weight": 1,
+                "explanation": "passed",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "skill-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "passed",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1
+      }
+    },
+    {
+      "name": "review--task-missing-prereqs",
+      "dir": "evals/cases/review--task-missing-prereqs",
+      "source": "prose",
+      "promptMarkdown": "Use the technical-writer skill to review the task topic below for engineers who run Northwind Relay. Return your findings as your final message and nothing else: one finding per line, ranked by severity, each naming the location, the rule broken, and the reference file that carries the rule. Do not rewrite the document and do not return a corrected copy.\n\nYou have no access to the product's sources. A version, permission, or default the document states counts as supported only when the document names where it comes from; otherwise report it as a claim without a source.\n\nThe document under review:\n\n```markdown\n# Create an alert rule\n\nCreate an alert rule that fires when a stream stops delivering messages, available from Northwind Relay 2.4.0.\n\n## Steps\n\n### Setting the condition\n\n1. Open **Alert rules** and select **New alert rule**.\n2. In **Condition**, select the stream to watch.\n3. Set **Evaluation interval** to how often the rule checks the stream, in seconds \u2014 the default is 60.\n4. Set **Delivery gap** to the number of seconds without a message that counts as a stall.\n5. Select **Save rule**. The rule's state reads **Normal** until a gap is detected.\n\n## Next steps\n\nRoute the alert to a channel from the rule's **Delivery** tab.\n```\n",
+      "runsPerCase": 1,
+      "timeoutSeconds": 600,
+      "maxTurns": 12,
+      "graders": [
+        {
+          "name": "before-you-begin",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "pattern": "Before you begin",
+            "flags": "i",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "em-dash",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "pattern": "em dash",
+            "flags": "i",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "gerund-heading",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "pattern": "gerund|-ing|infinitive",
+            "flags": "i",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "skill-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "input_match": "technical-writer"
+          }
+        },
+        {
+          "name": "version-source",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "pattern": "unverified|source",
+            "flags": "i",
+            "match": "contains"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.1,
+            "judgeCostUsd": 0,
+            "durationSeconds": 4,
+            "startedAt": "2026-10-17T17:22:49.738Z",
+            "error": null,
+            "tracePath": "trace-review.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "before-you-begin",
+                "passed": true,
+                "weight": 1,
+                "explanation": "passed",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "em-dash",
+                "passed": true,
+                "weight": 1,
+                "explanation": "passed",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "gerund-heading",
+                "passed": true,
+                "weight": 1,
+                "explanation": "passed",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "skill-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "passed",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "version-source",
+                "passed": true,
+                "weight": 1,
+                "explanation": "passed",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 2,
+    "casesPassed": 2,
+    "overallScore": 1,
+    "overallPassRate": 1
+  }
+}

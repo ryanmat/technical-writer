@@ -1,0 +1,12 @@
+# Description: Flags recommendation phrasing; the house rule states the requirement and its reason.
+# Description: After Splunk's Recommendations.yml (Apache-2.0), the message in our words.
+extends: existence
+message: "Avoid '%s': state the requirement and the reason for it instead of recommending."
+level: error
+ignorecase: true
+tokens:
+  - we recommend
+  - it is recommended
+  - it's recommended
+  - is recommended
+  - it is best to

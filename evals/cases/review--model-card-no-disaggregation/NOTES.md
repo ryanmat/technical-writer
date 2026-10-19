@@ -1,0 +1,7 @@
+# review--model-card-no-disaggregation
+
+Seed: the third review case, written on 2026-10-17; spec R1 (the request is classified as a review of a model card), R6 (review mode returns ranked findings naming the location, the rule, and the reference file, and never a rewrite), and R4 (the Hugging Face headings with the Mitchell et al. disaggregated results requirement). The pasted card carries three seeded defects: the Out-of-Scope Use section is missing (SECTION_MISSING, structural), Results carries an aggregate number only and no table by the factors the card names (EVIDENCE_MISSING, structural), and Recommendations opens with we recommend (BANNED_PATTERN, prose, the global ban). Every other required section is present and every other slot is filled with a value, so the three are the card's only defects.
+
+Expected shape: a findings list, one per line, ranked high to low, each naming the location, the rule, and the reference file. expected.json carries mode review, so run_evals.py never runs check_structure over the reply; its three defects are patterns the reply must contain, and the grade is recall by class: structural 2 of 2, prose 1 of 1. The gate pools recall over the case's runs and applies the acceptance rule (structural 1.0, prose at least 0.9) beside the regression bar. The regex graders mirror the three patterns. reference.md is one reply in that shape and is excluded from the template's pass fixtures.
+
+First read: none yet. The first review-tag run records its read here.

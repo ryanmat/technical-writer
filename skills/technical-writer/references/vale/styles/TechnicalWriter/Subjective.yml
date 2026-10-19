@@ -1,0 +1,13 @@
+# Description: Flags the subjective words the structural checker bans (BANNED_PATTERN): what is
+# Description: easy for the writer is not easy for every reader. After Grafana's Simple.yml (Apache-2.0).
+extends: existence
+message: "Avoid '%s': give the instruction and let the reader judge the effort."
+level: error
+ignorecase: true
+tokens:
+  - easy
+  - easily
+  - simple
+  - simply
+  - quickly
+  - just

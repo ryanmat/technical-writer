@@ -1,0 +1,7 @@
+# review--task-missing-prereqs
+
+Seed: the first review case, written on 2026-10-17; spec R1 (the request is classified as a review of a task topic, not a request to write one), R6 (review mode returns ranked findings naming the location, the rule, and the reference file, and never a rewrite), and R7 (a version claim with no source is reported as unsupported, the marker named as the fix). The pasted document carries four seeded defects: the Before you begin section is missing (SECTION_MISSING, structural), the summary's 2.4.0 claim names no source (EVIDENCE_MISSING, structural), the level-three heading Setting the condition is a gerund (BANNED_PATTERN, prose), and step 3 carries an em dash (BANNED_PATTERN, prose).
+
+Expected shape: a findings list, one per line, ranked high to low, each naming the location, the rule, and the reference file. expected.json carries mode review, so run_evals.py never runs check_structure over the reply; its four defects are patterns the reply must contain, and the grade is recall by class: structural 2 of 2, prose 2 of 2. The gate pools recall over the case's runs and applies the acceptance rule (structural 1.0, prose at least 0.9) beside the regression bar. The regex graders mirror the four patterns so the CLI records each miss by name. reference.md is one reply in that shape; it is not a document and is excluded from the task template's pass fixtures.
+
+First read: none yet. The first review-tag run records its read here.

@@ -1,0 +1,7 @@
+# release-notes--relay-2-5-0
+
+Seed: the sixth regression case, written on 2026-10-17; spec R1 (the request is classified as release notes, dated content for one released version, not a changelog entry), R4 (the Keep a Changelog shape: a version section, the ISO date, the six categories and no other), R7 (the issue export gives no key for the stalled-stream fix, so that entry carries an UNVERIFIED marker rather than an invented key), and R9 (the version heading carries the version alone so it stays a stable anchor, and the date sits on the first line under it where the evidence slot reads it).
+
+Expected shape: an H1 naming the product and release notes, a one-sentence summary naming what the release adds, changes, and fixes, one level-two section headed [2.5.0], a first line under it carrying 2026-10-17 and the Semantic Versioning statement and the count of breaking changes, the categories Added, Changed, and Fixed at level three in that order, one entry per change with its RELAY key in parentheses, the interval change opening with Breaking: in bold, and the stalled-stream fix carrying the marker in place of a key. reference.md is one document in that shape; it passes check_structure.py under the release notes template at the engineer audience with no finding: the date line fills the slot, every entry carries a key or the marker, and the marker is text the checker does not count, which the marker grader in run_evals.py reads.
+
+First read: none yet. The gate records the first regression run here.

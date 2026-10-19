@@ -1,0 +1,12 @@
+{
+  "template": "task",
+  "audience": "engineer",
+  "mode": "review",
+  "unverified": [],
+  "defects": [
+    {"code": "SECTION_MISSING", "pattern": "Before you begin"},
+    {"code": "EVIDENCE_MISSING", "pattern": "unverified|source"},
+    {"code": "BANNED_PATTERN", "pattern": "gerund|-ing|infinitive"},
+    {"code": "BANNED_PATTERN", "pattern": "em dash"}
+  ]
+}

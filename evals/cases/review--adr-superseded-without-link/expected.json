@@ -1,0 +1,11 @@
+{
+  "template": "architecture decision record",
+  "audience": "engineer",
+  "mode": "review",
+  "unverified": [],
+  "defects": [
+    {"code": "SECTION_MISSING", "pattern": "Considered Options"},
+    {"code": "EVIDENCE_MISSING", "pattern": "superseded by|record number|NNNN|which record|the record that"},
+    {"code": "BANNED_PATTERN", "pattern": "passive|active voice|We will"}
+  ]
+}

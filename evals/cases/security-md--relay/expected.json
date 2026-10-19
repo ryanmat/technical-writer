@@ -1,0 +1,8 @@
+{
+  "template": "SECURITY.md",
+  "audience": "engineer",
+  "unverified": [
+    "fingerprint|pgp|gpg|key"
+  ],
+  "defects": []
+}

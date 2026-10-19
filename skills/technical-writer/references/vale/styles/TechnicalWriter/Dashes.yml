@@ -1,0 +1,9 @@
+# Description: Bans em and en dashes, closed or spaced, as the structural checker does
+# Description: (BANNED_PATTERN). After Splunk's Dashes.yml (Apache-2.0), the message in our words.
+extends: existence
+message: "No em dashes or en dashes ('%s'): write a comma, a colon, parentheses, or two sentences."
+level: error
+nonword: true
+tokens:
+  - "—"
+  - "–"

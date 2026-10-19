@@ -1,0 +1,8 @@
+{
+  "template": "postmortem",
+  "audience": "engineer",
+  "unverified": [
+    "users|consumer groups|consumers|customers|affected|how many|reached"
+  ],
+  "defects": []
+}

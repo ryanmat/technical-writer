@@ -1,0 +1,45 @@
+# Description: Hand scores for the prose judge calibration set, ruled 2026-10-17 10:22 EDT.
+# Description: The maintainer scores each document 1 to 5 on evals/rubrics/prose.md; the agreement test requires the judge within one point of each.
+rubric: evals/rubrics/prose.md
+source_report: evals/reports/20261017T233258Z.json
+source_results: evals/results/20261017T233258Z
+source_model: claude-sonnet-5-5
+scorer: the maintainer
+scored_on: 2026-10-17
+documents:
+  - file: task--relay-alert-rule-run0.md
+    case: task--relay-alert-rule
+    template: task
+    audience: engineer
+    score: 3
+    notes: "Filler: Steps opens with field explanation that is not a condition to check, then restates the title before step 1. Deciding sentence: \"The Evaluation interval sets how often the rule checks the stream, in seconds.\""
+  - file: task--relay-alert-rule-run1.md
+    case: task--relay-alert-rule
+    template: task
+    audience: engineer
+    score: 3
+    notes: "Filler: Steps opens with field explanation, restates the title before step 1, and Next steps adds a vague Normal sentence. Deciding sentence: \"An alert rule checks one stream at a fixed interval.\""
+  - file: adr--relay-queue-backend-run0.md
+    case: adr--relay-queue-backend
+    template: architecture decision record
+    audience: engineer
+    score: 4
+    notes: "One lead slip in Context. Deciding sentence: \"Relay buffers messages between producers and consumers.\""
+  - file: adr--relay-queue-backend-run1.md
+    case: adr--relay-queue-backend
+    template: architecture decision record
+    audience: engineer
+    score: 3
+    notes: "Same Context lead slip plus a Confirmation section that restates the evidence instead of naming the check. Deciding sentence: \"The 2026-09 benchmark and soak test of Northwind Queue are the evidence for this decision.\""
+  - file: model-card--relay-intent-classifier-run0.md
+    case: model-card--relay-intent-classifier
+    template: model card
+    audience: downstream provider
+    score: 4
+    notes: "One filler sentence in Recommendations. Deciding sentence: \"This is the Northwind Labs team's recommendation.\""
+  - file: model-card--relay-intent-classifier-run1.md
+    case: model-card--relay-intent-classifier
+    template: model card
+    audience: downstream provider
+    score: 4
+    notes: "Three ideas in the Direct Use paragraph, otherwise clean. Deciding sentence: \"Input length limits, output format, and the list of the twelve labels are not in the model registry entry: [UNVERIFIED: input length limit, output format, and the twelve intent label names].\""

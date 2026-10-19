@@ -1,0 +1,68 @@
+{
+  "rubric": "evals/rubrics/prose.md",
+  "rubric_sha256": "fbf991dd3efcf04c5191dfc9c49b8599dde1312bf96d147d552ce52a3d9811f1",
+  "judge_model": "claude-sonnet-5-5",
+  "scored_on": "2026-10-18",
+  "documents": [
+    {
+      "file": "task--relay-alert-rule-run0.md",
+      "case": "task--relay-alert-rule",
+      "template": "task",
+      "audience": "engineer",
+      "criteria_sha256": "4538e9b0f7cef5c7d0d04f86bfd0cb2abe95eb53cd331c285204165dd8047563",
+      "score": 3,
+      "answer": "Score: 3\n\n**Leads with the point:** The opening line \"An alert rule in Northwind Relay checks a stream on a schedule and fires when the stream stops delivering messages.\" gives the purpose, but the Steps section opens with a field explanation (\"The **Evaluation interval** sets how often the rule checks the stream, in seconds.\") rather than the action.\n\n**One idea per paragraph:** Steps hold to one action each (for example \"Select **New alert rule**.\"), but step 5 combines entering a value with keeping the default (\"enter the number of seconds between checks, or keep the default of 60\"), which is a minor slip.\n\n**No filler:** The opening sentence under the title restates what the title already says, and \"The **Evaluation interval** sets how often the rule checks the stream, in seconds. The default is 60.\" is a field explanation placed before the steps, which is preamble; the default is then repeated in step 5.\n\n**Register fits the audience:** Exact control names such as \"**Delivery gap**\" and \"**Save rule**\" suit an engineer, and the markers are specific, for example \"[UNVERIFIED: whether the rule takes a gap length, and its unit]\", though the document omits the optional Next steps section and so gives no way to confirm the rule held.",
+      "cost_usd": "0.017225999999999998"
+    },
+    {
+      "file": "task--relay-alert-rule-run1.md",
+      "case": "task--relay-alert-rule",
+      "template": "task",
+      "audience": "engineer",
+      "criteria_sha256": "4538e9b0f7cef5c7d0d04f86bfd0cb2abe95eb53cd331c285204165dd8047563",
+      "score": 3,
+      "answer": "Score: 3\n\n**Leads with the point:** The opening line \"Create an alert rule in Northwind Relay that fires when a stream has a delivery gap.\" states the purpose, but the Steps section opens with an explanation (\"An alert rule checks one stream at a fixed interval.\") and Next steps opens with \"Check the rule on the **Alert rules** screen.\" and then supplies no outcome.\n\n**One idea per paragraph:** Step 5, \"enter the number of seconds between checks. Leave the default of 60 to check every 60 seconds.\", is one action with an alternative, so it mostly holds, but the Next steps paragraph mixes a check instruction with a label definition (\"**Normal** is a state label in Northwind Relay.\").\n\n**No filler:** The Steps preamble \"An alert rule checks one stream at a fixed interval. The **Evaluation interval** sets how often the rule checks the stream, in seconds. The default is 60.\" explains a field before the steps, which the rubric counts as preamble, and the default of 60 is repeated in step 5; \"Normal is a state label in Northwind Relay.\" tells the reader nothing they can act on.\n\n**Register fits the audience:** Exact control names such as **Condition**, **Delivery gap** and **Save rule** suit an engineer, but several markers are vague, for example \"[UNVERIFIED: where Normal appears and what it tells you about the rule]\" and \"[UNVERIFIED: what the screen shows after the rule is saved]\", leaving the reader unsure how to confirm the result.",
+      "cost_usd": "0.018283999999999998"
+    },
+    {
+      "file": "adr--relay-queue-backend-run0.md",
+      "case": "adr--relay-queue-backend",
+      "template": "architecture decision record",
+      "audience": "engineer",
+      "criteria_sha256": "9902d73a268462492006b568bbeafe73ea4aef3a4a194a3040dedb50e3839961",
+      "score": 4,
+      "answer": "Score: 4\n\n**Leads with the point:** The opening line \"Northwind Relay stores in-flight messages from release 2.5 in Northwind Queue, the in-house broker, instead of a managed cloud queue service.\" states the decision, and the Decision Outcome opens with its conclusion, though the final \"We will store in-flight messages from release 2.5 in Northwind Queue, operated by the Relay team under its on-call rotation.\" repeats the title line after the reason.\n\n**One idea per paragraph:** Paragraphs and list items stay on one subject; the Context paragraph moves from history to requirements to the question, but all serve one framing, so nothing needs splitting.\n\n**No filler:** The Northwind Queue facts (12 ms p99, zero loss in the soak test, no network path, on-call operation, at-least-once delivery) appear in Decision Outcome, Consequences, and Pros and Cons, so a fact appears three times, for example \"the soak test held one hour of backlog with zero messages lost\", which is the one place the document carries repetition beyond what the templates ask.\n\n**Register fits the audience:** Engineers get exact figures and sources such as \"enqueue p99 of 12 ms against the 20 ms budget\" and specific markers like \"[UNVERIFIED: Northwind Queue behavior at the expected daily volume]\", which tell the reader what to go and find.",
+      "cost_usd": "0.023182"
+    },
+    {
+      "file": "adr--relay-queue-backend-run1.md",
+      "case": "adr--relay-queue-backend",
+      "template": "architecture decision record",
+      "audience": "engineer",
+      "criteria_sha256": "9902d73a268462492006b568bbeafe73ea4aef3a4a194a3040dedb50e3839961",
+      "score": 4,
+      "answer": "Score: 4\n\n**Leads with the point:** The opening line, \"Northwind Relay 2.5 stores in-flight messages in Northwind Queue, the in-house broker, instead of a managed cloud queue service.\", states the decision, and the Decision Outcome opens with \"Chosen option: \"Northwind Queue\", because it is the only option with measured evidence for the drivers\", though the Confirmation section opens with a restatement of evidence, \"The 2026-09 benchmark and soak test of Northwind Queue are the evidence for this decision.\", rather than how the team will confirm the decision was carried out.\n\n**One idea per paragraph:** Paragraphs hold one idea each, for example the Context's single paragraph moves from the problem to the question it asks, and the Decision Outcome keeps the rationale line and the \"We will store in-flight messages...\" line as two short paragraphs.\n\n**No filler:** The Consequences repeat the 12 ms and one-hour soak facts that the Decision Outcome and Pros and Cons also state (\"the measured enqueue p99 of 12 ms leaves 8 ms of headroom\"), so the 12 ms figure appears in three sections, and the More Information line \"Sources: the 2.5 planning note and the 2026-09 benchmark and soak test of Northwind Queue.\" repeats what the Confirmation and the inline sources already hold.\n\n**Register fits the audience:** The engineer gets exact figures and identifiers (\"enqueue p99 of 12 ms against the 20 ms budget\", \"at-least-once, so duplicates are possible and consumers must tolerate them\"), and the `[UNVERIFIED: whether the soak test load matched 40 million messages a day]` markers name what to go and find.",
+      "cost_usd": "0.023668"
+    },
+    {
+      "file": "model-card--relay-intent-classifier-run0.md",
+      "case": "model-card--relay-intent-classifier",
+      "template": "model card",
+      "audience": "downstream provider",
+      "criteria_sha256": "b98f2cedeec8f01709d8dc3e0325bbd1604207cc2895e0ed809de9f117a18851",
+      "score": 3,
+      "answer": "Score: 3\n\n**Leads with the point:** The opening line, \"Relay Intent Classifier is a text classifier that assigns each incoming Northwind Relay support message, in English or Spanish, to one of twelve Relay queues.\", states the purpose, and sections open with their conclusion or action, for example \"Send messages with a top score below 0.6 to a person.\"\n\n**One idea per paragraph:** Paragraphs hold to one subject, and the second Bias paragraph (\"Chat messages under five words are often labeled billing...\") stays on a single point, so this criterion holds.\n\n**No filler:** The mixed-language gap is stated in Out-of-Scope Use (\"Messages that mix languages were not evaluated either.\"), again in Bias (\"Mixed-language messages were not evaluated.\") and again in Recommendations (\"Do not send mixed-language messages...\"), and the Spanish chat figures (\"accuracy 0.84 and macro F1 0.79\") appear in Bias, Results and Summary. The sentences \"This is the Northwind Labs team's recommendation.\" and \"Check your use against this sentence: one message in, one queue out.\" add nothing the reader can act on.\n\n**Register fits the audience:** It fits a downstream provider, with exact identifiers (`northwind/relay-base-v2`, `revision=\"1.2.0\"`), a pinned-revision load block, and specific markers such as \"[UNVERIFIED: the inference call, its input format, and how to read the top score are not in the supplied sources, so no prediction example is given.]\".",
+      "cost_usd": "0.032006"
+    },
+    {
+      "file": "model-card--relay-intent-classifier-run1.md",
+      "case": "model-card--relay-intent-classifier",
+      "template": "model card",
+      "audience": "downstream provider",
+      "criteria_sha256": "b98f2cedeec8f01709d8dc3e0325bbd1604207cc2895e0ed809de9f117a18851",
+      "score": 4,
+      "answer": "Score: 4\n\n**Leads with the point:** The title is followed at once by \"Relay Intent Classifier routes each incoming Northwind Relay support message, in English or Spanish, to one of twelve Relay queues.\" and the Direct Use section opens with \"Route each incoming support message to one of twelve Relay queues.\" so a reader gets the use before anything else.\n\n**One idea per paragraph:** Each paragraph holds one subject, for example \"Chat messages under five words are often labeled billing, the most frequent intent. A short chat message routed to billing may belong in another queue.\" which states the cause and its cost together.\n\n**No filler:** The one slip is that the Spanish chat figures are stated in Bias, Risks, and Limitations (\"Spanish chat is the weakest group, with accuracy 0.84 and macro F1 0.79\") and again in the Summary, on top of the Results table, where the template asks Bias only to point at the table.\n\n**Register fits the audience:** The card gives a downstream provider checkable facts (a pinned `revision=\"1.2.0\"`, a 0.6 threshold, a factor-by-factor table) and its markers name exactly what is missing, as in \"[UNVERIFIED: input length limit, output format, and the twelve intent label names]\".",
+      "cost_usd": "0.031204"
+    }
+  ]
+}

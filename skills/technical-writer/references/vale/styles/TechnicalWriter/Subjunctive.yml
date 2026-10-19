@@ -1,0 +1,20 @@
+# Description: Flags should, would and could in user-facing text; the house rule keeps the
+# Description: uppercase MUST, SHOULD and MAY of normative text, so the match is case-sensitive.
+# After Splunk's SubjunctiveMood.yml (Apache-2.0), the message in our words.
+extends: existence
+message: "Avoid '%s': write what the reader does or what the system does."
+level: warning
+ignorecase: false
+tokens:
+  - should
+  - Should
+  - shouldn't
+  - should not
+  - would
+  - Would
+  - wouldn't
+  - would not
+  - could
+  - Could
+  - couldn't
+  - could not

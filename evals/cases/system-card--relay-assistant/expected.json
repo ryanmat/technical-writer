@@ -1,0 +1,8 @@
+{
+  "template": "system card",
+  "audience": "executive",
+  "unverified": [
+    "cyber|security team|attack"
+  ],
+  "defects": []
+}

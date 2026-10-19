@@ -1,0 +1,8 @@
+{
+  "template": "disclosure notification",
+  "audience": "operator",
+  "unverified": [
+    "date.{0,40}(?:fix|merge)|(?:fix|merge).{0,40}date"
+  ],
+  "defects": []
+}

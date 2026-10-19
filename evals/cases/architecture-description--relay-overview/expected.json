@@ -1,0 +1,8 @@
+{
+  "template": "architecture description",
+  "audience": "engineer",
+  "unverified": [
+    "throughput|messages per second|messages a day|volume|load|siz(?:ed|ing)"
+  ],
+  "defects": []
+}

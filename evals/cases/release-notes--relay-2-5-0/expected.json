@@ -1,0 +1,6 @@
+{
+  "template": "release notes",
+  "audience": "engineer",
+  "unverified": ["issue"],
+  "defects": []
+}

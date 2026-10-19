@@ -1,0 +1,8 @@
+{
+  "template": "GPAI Model Documentation Form",
+  "audience": "regulator",
+  "unverified": [
+    "inference"
+  ],
+  "defects": []
+}

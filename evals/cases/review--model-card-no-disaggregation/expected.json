@@ -1,0 +1,11 @@
+{
+  "template": "model card",
+  "audience": "downstream provider",
+  "mode": "review",
+  "unverified": [],
+  "defects": [
+    {"code": "SECTION_MISSING", "pattern": "Out-of-Scope Use"},
+    {"code": "EVIDENCE_MISSING", "pattern": "disaggregat|results table|by (?:language|channel|factor)"},
+    {"code": "BANNED_PATTERN", "pattern": "we recommend"}
+  ]
+}

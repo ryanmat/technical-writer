@@ -1,0 +1,8 @@
+{
+  "template": "error catalog entry",
+  "audience": "engineer",
+  "unverified": [
+    "version.{0,60}(?:renam|PATCH)|(?:renam|PATCH).{0,60}version"
+  ],
+  "defects": []
+}

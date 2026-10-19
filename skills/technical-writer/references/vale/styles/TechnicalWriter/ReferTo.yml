@@ -1,0 +1,8 @@
+# Description: Swaps "refer to" for "see" in cross-references, the house rule backed by the Google
+# Description: word list; Grafana's ReferTo.yml (Apache-2.0) takes the other side, its message form quoted.
+extends: substitution
+message: "Use '%s' instead of '%s'."
+level: error
+ignorecase: true
+swap:
+  refer to: see

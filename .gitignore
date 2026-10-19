@@ -1,0 +1,9 @@
+# Python caches and the uv virtualenv stay out of the plugin repo.
+__pycache__/
+*.pyc
+.venv/
+# Eval run output and local tooling state are regenerated, never committed.
+evals/results/
+.next-auto/
+# The Google Vale package is fetched by `vale sync` into the skill's StylesPath, never vendored.
+skills/technical-writer/references/vale/styles/Google/

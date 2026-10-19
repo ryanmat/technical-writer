@@ -1,0 +1,17 @@
+# Description: Flags the words that date a document outside dated content such as release notes
+# Description: and changelogs. Message quoted from Grafana's Timeless.yml (Apache-2.0); the tokens are
+# the structural checker's two plus the phrases that have no ordinary use, so "now" and "new" stay
+# with the by-hand checklist by ruling.
+extends: existence
+message: "Avoid using '%s' to keep the documentation timeless. In general, document the current version of a product or feature."
+level: warning
+ignorecase: true
+tokens:
+  - currently
+  - soon
+  - presently
+  - at present
+  - as of this writing
+  - does not yet
+  - eventually
+  - in the future

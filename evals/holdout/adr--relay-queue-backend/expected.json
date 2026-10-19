@@ -1,0 +1,6 @@
+{
+  "template": "architecture decision record",
+  "audience": "engineer",
+  "unverified": ["cost"],
+  "defects": []
+}

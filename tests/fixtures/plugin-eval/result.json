@@ -1,0 +1,122 @@
+{
+  "schemaVersion": 1,
+  "claudeVersion": "2.1.301",
+  "startedAt": "2026-10-17T17:22:49.646Z",
+  "durationSeconds": 4,
+  "costUsd": 0.08578530000000001,
+  "partial": false,
+  "suite": {
+    "root": ".",
+    "ablation": "none",
+    "judgeModel": "claude-haiku-4-5-20251001",
+    "caseFilter": "task--relay-alert-rule",
+    "tagFilters": [
+      "holdout"
+    ],
+    "threshold": 1,
+    "concurrency": 1,
+    "plugins": [
+      {
+        "name": "d6-estate",
+        "version": "0.1.0",
+        "path": "."
+      }
+    ]
+  },
+  "cases": [
+    {
+      "name": "task--relay-alert-rule",
+      "dir": "evals/task--relay-alert-rule",
+      "source": "prose",
+      "promptMarkdown": "Use the technical-writer skill to write a task topic for engineers who run Northwind Relay. The task: create an alert rule that fires when a stream stops delivering messages. Return the finished Markdown document as your final message and nothing else.\n\nEverything you may state about the product is in the three snippets below. Do not add behavior, defaults, versions, or permissions they do not contain.\n\nUI strings, from the Alert rules screens:\n\n```text\nAlert rules\nNew alert rule\nCondition\nStream\nEvaluation interval\nDelivery gap\nSave rule\nNormal\n```\n\nRelease line, from the product's about dialog box:\n\n```text\nNorthwind Relay 2.4.0\nAlert rules are available from 2.4.0.\n```\n\nOne setting, from the rule editor's help text:\n\n```text\nEvaluation interval: how often the rule checks the stream, in seconds. Default: 60.\n```",
+      "runsPerCase": 1,
+      "timeoutSeconds": 600,
+      "maxTurns": 12,
+      "graders": [
+        {
+          "name": "headings",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "^## Steps",
+            "flags": "m",
+            "match": "contains"
+          }
+        },
+        {
+          "name": "no-em-dash",
+          "type": "regex",
+          "weight": 1,
+          "config": {
+            "target": "last_message",
+            "pattern": "\u2014",
+            "match": "not_contains",
+            "flags": ""
+          }
+        },
+        {
+          "name": "skill-fired",
+          "type": "tool_used",
+          "weight": 1,
+          "config": {
+            "tool": "Skill",
+            "input_match": "technical-writer"
+          }
+        }
+      ],
+      "arms": {
+        "with": [
+          {
+            "score": 1,
+            "passed": true,
+            "turns": 3,
+            "costUsd": 0.08578530000000001,
+            "judgeCostUsd": 0,
+            "durationSeconds": 4,
+            "startedAt": "2026-10-17T17:22:49.738Z",
+            "error": null,
+            "tracePath": "trace.jsonl",
+            "skippedPaidGraders": false,
+            "graders": [
+              {
+                "name": "headings",
+                "passed": true,
+                "weight": 1,
+                "explanation": "matched ^## Steps",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "no-em-dash",
+                "passed": true,
+                "weight": 1,
+                "explanation": "pattern absent as expected",
+                "withOnly": false,
+                "scored": true
+              },
+              {
+                "name": "skill-fired",
+                "passed": true,
+                "weight": 1,
+                "explanation": "Skill called 1x (expected 1..\u221e)",
+                "withOnly": false,
+                "scored": true
+              }
+            ]
+          }
+        ]
+      },
+      "aggregates": {
+        "score": 1,
+        "passRate": 1
+      }
+    }
+  ],
+  "aggregates": {
+    "casesTotal": 1,
+    "casesPassed": 1,
+    "overallScore": 1,
+    "overallPassRate": 1
+  }
+}

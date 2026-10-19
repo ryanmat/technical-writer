@@ -1,0 +1,7 @@
+# tutorial--relay-first-route
+
+Seed: the fourth regression case, written on 2026-10-17; spec R1 (the request is classified as a tutorial, a lesson on one path, not a multiple-task procedure, although both have several task sections), R4 (the Grafana tutorial shape: overview, one Before you begin, task sections, Summary, Next steps), R6 (the procedure rules in every task section through the pattern-named procedure_section), R7 (the snippets name no version and no permission, so Before you begin carries UNVERIFIED markers rather than invented values, and the version marker is what the slot reads), and R9 (expected output follows each command, from the transcript).
+
+Expected shape: a verb-first H1, a one-sentence summary, an overview naming the result, Before you begin with the version and permission marked unverified, three task sections each opening with a To stem and using the UI labels in bold as the snippets spell them, the two commands with the transcript's output, a Summary with one bullet per task, and Next steps last. reference.md is one document in that shape; it passes check_structure.py under the tutorial template at the engineer audience with no finding: the slot pattern matches the words version and permission inside the two markers' own text, so the checker reads the slot as filled (the Step 19 Finding on check_evidence) and the marker grader in run_evals.py is what reads the markers.
+
+First read: none yet. The gate records the first regression run here.

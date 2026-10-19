@@ -1,0 +1,8 @@
+{
+  "template": "changelog entry",
+  "audience": "engineer",
+  "unverified": [
+    "issue|pull request|commit|key|identifier|ticket"
+  ],
+  "defects": []
+}

@@ -1,0 +1,6 @@
+{
+  "template": "model card",
+  "audience": "downstream provider",
+  "unverified": ["carbon", "provider"],
+  "defects": []
+}

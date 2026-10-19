@@ -1,0 +1,8 @@
+{
+  "template": "endpoint or field description",
+  "audience": "engineer",
+  "unverified": [
+    "base_gap_ms.{0,60}default|default.{0,60}(?:base_gap_ms|base gap|first retry gap|gap before the first retry)|schema default|default.{0,50}(?:export|schema|not (?:given|included|stated|in the))"
+  ],
+  "defects": []
+}

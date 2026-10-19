@@ -1,0 +1,11 @@
+{
+  // Description: markdownlint configuration the skill's lint.sh passes with --config.
+  // Description: Line length is the checker's job per audience; one H1 is the structural rule.
+  "default": true,
+  // MD013: the templates and references wrap prose at 100 and tables run longer.
+  "MD013": false,
+  // MD024: the same heading may repeat under different parents (a Steps section per task).
+  "MD024": { "siblings_only": true },
+  // MD025: exactly one H1, as check_structure enforces with H1_COUNT.
+  "MD025": true
+}

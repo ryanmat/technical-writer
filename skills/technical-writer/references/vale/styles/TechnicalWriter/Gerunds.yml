@@ -1,0 +1,8 @@
+# Description: Flags a heading that opens with an -ing word; task headings are bare infinitives
+# Description: and concept headings noun phrases. Regex and message quoted from Grafana's Gerunds.yml (Apache-2.0).
+extends: existence
+message: "For a task-based heading, start with a bare infinitive. For a conceptual or non-task-based heading, use a noun phrase that doesn't start with an -ing verb."
+level: warning
+scope: heading
+raw:
+  - '^ *[A-Z][a-zA-Z]*ing .*$'

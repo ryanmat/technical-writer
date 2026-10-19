@@ -1,0 +1,13 @@
+{
+  "judge_model": "claude-sonnet-5-5",
+  "rubric_sha256": "60173ffee356e9f27cfd33f9ece8f303686bb5083cf08b4c9a875ef8873b7864",
+  "runs": [
+    {
+      "case": "task--relay-alert-rule",
+      "run": 0,
+      "score": 4,
+      "answer": "Score: 4\n\n**Leads with the point:** The opening line, \"Create an alert rule so that Northwind Relay alerts you when a stream stops delivering messages.\", states the purpose, and the steps open with actions, though step 1 gives no navigation path to reach **Alert rules**.\n\n**One idea per paragraph:** Each step carries one action with at most its result, as in \"Click **Save rule**. The rule appears on the **Alert rules** page as **Normal**.\"\n\n**No filler:** \"To create an alert rule, complete the following steps.\" restates the heading and previews the list, and it is the one filler sentence.\n\n**Register fits the audience:** The exact UI labels and the precise marker \"[UNVERIFIED: the permission or role that grants access to Alert rules]\" suit an engineer, though step 5's \"enter the delivery gap at which the rule fires\" gives no unit or example value, unlike step 4's \"in seconds\".",
+      "cost_usd": "0.013146000000000001"
+    }
+  ]
+}

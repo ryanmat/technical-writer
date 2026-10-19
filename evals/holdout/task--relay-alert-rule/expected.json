@@ -1,0 +1,6 @@
+{
+  "template": "task",
+  "audience": "engineer",
+  "unverified": ["permission"],
+  "defects": []
+}

@@ -1,0 +1,169 @@
+# Model Documentation Form for Relay Foundation 7B
+
+Relay Foundation 7B is the general-purpose text model Northwind Labs trained to power Relay support assistants and offers to downstream providers through the Relay API, and this form is prepared for the AI Office under Measure 1.1 of the Transparency Chapter.
+
+Date this document was last updated: 2026-10-18. Document version number: 1.0.
+
+## General information
+
+The model's identity, dates and dependencies.
+
+### Legal name for the model provider
+
+Northwind Labs.
+
+### Model authenticity
+
+The model is offered as a service; the endpoint is https://api.relay.example.com/v1/models/relay-foundation-7b.
+
+### Release date
+
+2026-09-15.
+
+### Union market release date
+
+2026-09-15, the same day as the general release.
+
+### Model dependencies
+
+N/A; the model was trained from scratch and is not fine-tuned from a base model.
+
+## Model properties
+
+Architecture, design and size.
+
+### Model architecture
+
+Decoder-only transformer, 32 layers, hidden size 4,096, 32 attention heads with grouped-query attention, 32,000-token context.
+
+### Design specifications of the model
+
+The model is sized at about seven billion parameters so that one 24 GB accelerator serves it, since Relay customers run it beside the Relay router on their own clusters. The assumptions are that the traffic is support conversation in English, German and French, that answers stay under 8,000 tokens, and that retrieval supplies the facts, so the model optimises for instruction following over a retrieved context rather than for recall of world knowledge.
+
+### Input modalities
+
+Text; maximum input 32,000 tokens.
+
+### Output modalities
+
+Text; maximum output 8,000 tokens.
+
+### Total model size (exact)
+
+7.3*10^9 parameters.
+
+## Methods of distribution and licenses
+
+Channels, license and assets.
+
+### Distribution channels in the Union market
+
+The hosted Relay API at api.relay.example.com, and a container image for enterprise customers who run Relay on their own clusters.
+
+### Model license
+
+Proprietary; the license is at https://relay.example.com/licenses/relay-foundation-7b.
+
+### Additional assets
+
+Inference code: released at https://relay.example.com/code/inference under Apache-2.0. Evaluation code: released at the same location under Apache-2.0. Training data, processing code and training code: not released.
+
+## Use
+
+Policy, uses and the systems the model goes into.
+
+### Acceptable Use Policy
+
+https://relay.example.com/policies/acceptable-use.
+
+### Intended uses
+
+Intended uses: support chat assistants that answer over retrieved documentation, intent classification of support messages, and summarisation of support threads. Prohibited uses: medical, legal or financial advice to end users; biometric categorisation; any decision on a person's access to an essential service without human review; generation of content for another customer's data.
+
+### Type and nature of AI systems
+
+Customer-support assistants and message-routing systems that call the model over the API with a retrieved context. The model should not be integrated into systems that decide on access to essential services, employment or credit without human review.
+
+## Training process
+
+Two stages and the reasons behind them.
+
+### Design specifications of the training process
+
+Stage one pre-trained the model on 2.1*10^12 tokens with a next-token objective; stage two fine-tuned it on 1.2*10^6 support-style instruction pairs written by the Northwind support team and by a contracted annotation vendor. The optimiser was AdamW with a cosine schedule, a peak learning rate of 3*10^-4 and a batch of 4*10^6 tokens, in bfloat16 precision, with a 32,000-token context from the start of pre-training. Validation used a held-out 0.5 percent of each data source, and checkpoints were kept every 2,000 steps.
+
+### Decision rationale
+
+The 32,000-token context was chosen so that a retrieved documentation set fits in one call, which the Relay assistant depends on. Grouped-query attention was chosen to keep inference memory within one 24 GB accelerator at that context. The fine-tuning set was written rather than scraped so that the model's support register and refusal behaviour match the Acceptable Use Policy.
+
+## Information on the data used for training, testing, and validation
+
+The data in the form's fields.
+
+### Data type and modality
+
+Text.
+
+### Data provenance
+
+Publicly available datasets; private non-publicly available datasets obtained from third parties under license; synthetic data that is not publicly accessible. No web crawling by Northwind Labs and no user data.
+
+### How data was obtained and selected
+
+The public datasets were downloaded from their publishers under their stated licenses. The private datasets, support-conversation corpora from two vendors, were licensed under written agreements that grant training rights. The synthetic data, 8 percent of the pre-training tokens, was generated by an earlier Northwind model from documentation prompts and filtered by the quality classifier below. The fine-tuning pairs were written by the Northwind support team and a contracted annotation vendor under the same instructions, with 10 percent double-written for agreement checks.
+
+### Number of data points (two significant figures)
+
+2.1*10^12 tokens of pre-training data; 1.2*10^6 fine-tuning pairs.
+
+### Scope and main characteristics
+
+English 70 percent, German 18 percent, French 12 percent of pre-training tokens; domains: software documentation, support conversation, general web text from the public datasets; geography: not tracked beyond language; modality: text only.
+
+### Data curation methodologies
+
+Exact and near-duplicate removal at the document level; language identification with documents outside the three languages dropped; a quality classifier trained on documentation and support text, with the lowest-scoring 20 percent of each source dropped; removal of names, addresses, account identifiers and card numbers by pattern and classifier passes; no augmentation.
+
+### Measures to detect unsuitability of data sources
+
+Every document was hash-matched against the child sexual abuse material hash lists of a specialist provider and matches were removed; a classifier for illegal content and for non-consensual intimate imagery descriptions ran over every source, and flagged documents were reviewed by the trust team and removed; personal data was removed by the identifier passes under Data curation methodologies, and the private datasets were contractually warranted free of personal data beyond business contact details.
+
+### Measures to detect identifiable biases
+
+Language and domain shares were measured per source and per training stage; a held-out evaluation compared refusal rates and answer quality across the three languages and across gendered names in support prompts, and the fine-tuning set was rebalanced once after German answers scored lower.
+
+## Computational resources (during training)
+
+Time and compute for the AI Office.
+
+### Training time (days)
+
+34 wall-clock days; 8.7*10^3 hardware days.
+
+### Amount of computation used for training (two significant figures)
+
+1.3*10^23 floating point operations.
+
+### Measurement methodology (compute)
+
+Six times the parameter count times the training tokens, checked against the accelerator utilisation logs from the training cluster.
+
+## Energy consumption (during training and inference)
+
+Energy and inference compute.
+
+### Amount of energy used for training
+
+N/A; the compute provider withholds the facility's power and cooling data, so the energy figure cannot be computed.
+
+### Measurement methodology (energy)
+
+The method would be the metered power of the training racks over the 34 days multiplied by the facility's power usage effectiveness; the provider has supplied neither figure.
+
+### Benchmarked amount of computation used for inference
+
+[UNVERIFIED: the benchmarked inference compute, which the scheduled benchmark has not yet produced]
+
+### Measurement methodology (inference)
+
+The benchmark task is generating 100,000 tokens from 32,000-token prompts on eight Nvidia A100s, with the compute read from the accelerator counters.

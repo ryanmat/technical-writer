@@ -1,0 +1,8 @@
+{
+  "name": "technical-writer",
+  "version": "0.2.1",
+  "description": "Produces and reviews technical documents in the structure their audience expects, across six domains: user documentation, engineering and architecture, API reference text, AI governance, security, and privacy. Classifies the document before drafting, takes an explicit audience, fills a fixed template with required evidence slots, marks every unverifiable claim, and ships with deterministic evals.",
+  "author": {
+    "name": "ryanmat"
+  }
+}

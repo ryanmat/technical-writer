@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "technical-writer",
+  "description": "The technical-writer skill as one plugin. Pin at install: claude plugin marketplace add ryanmat/technical-writer@<tag>, then claude plugin install technical-writer@technical-writer.",
+  "owner": {
+    "name": "ryanmat"
+  },
+  "plugins": [
+    {
+      "name": "technical-writer",
+      "description": "Produces and reviews technical documents in the structure their audience expects, across six domains: user documentation, engineering and architecture, API reference text, AI governance, security, and privacy. Classifies the document before drafting, takes an explicit audience, fills a fixed template with required evidence slots, marks every unverifiable claim, and ships with deterministic evals.",
+      "version": "0.2.1",
+      "author": {
+        "name": "ryanmat"
+      },
+      "source": "./"
+    }
+  ]
+}
