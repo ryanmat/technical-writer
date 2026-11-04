@@ -66,7 +66,7 @@ its license are in [attribution.md](attribution.md).
 
 ## Out of scope by ownership
 
-Three document kinds belong to other skills. Asked for one of these, the skill names the owner
+Four document kinds belong to other skills. Asked for one of these, the skill names the owner
 and stops; it does not draft a competing version.
 
 | Document | Owner | Why |
@@ -74,10 +74,13 @@ and stops; it does not draft a competing version.
 | README | `github` | the canonical README format lives there, with the PR body |
 | pull request body | `github` | same skill, same format |
 | penetration test or assessment report | `pentest-report` | PTES structure and the findings register live there |
+| project write-up for peers: the long-form post about a project and its Slack, LinkedIn or Reddit cuts | `project-writeup` | the practitioner-blog shape (abstract, tl;dr, mechanisms before judgment, failures, takeaways) and its voice live there; a walkthrough page inside the project's own repository is this skill's tutorial type, not a write-up |
 
-Voice is also owned elsewhere: `humanize` removes AI-tell phrasing, `writing-style-review`
-reviews against the house style guide. This skill owns structure and domain convention and names those owners
-when asked for a voice pass (spec R11).
+Voice is also owned elsewhere: `humanize` removes AI-tell phrasing and runs the plain check for
+the crafted register, `writing-style-review` reviews against the house style guide. This skill
+owns structure and domain convention and names those owners when asked for a voice pass (spec
+R11). The order on a page that ships is this skill's draft, then `humanize`, then this skill's
+checker again.
 
 ## What a template status means
 
