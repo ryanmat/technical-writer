@@ -270,7 +270,7 @@ CHECKLISTS = REFERENCES_DIR / "checklists.md"
 ATTRIBUTION = REFERENCES_DIR / "attribution.md"
 TEMPLATES_DIR = REFERENCES_DIR / "templates"
 SKILL_FILE = REFERENCES_DIR.parent / "SKILL.md"
-OUT_OF_SCOPE_OWNERS = {"github", "pentest-report"}
+OUT_OF_SCOPE_OWNERS = {"github", "pentest-report", "project-writeup"}
 
 _MD_LINK = re.compile(r"\[[^\]]*\]\((?P<target>[^)#\s]+)(?:#[^)]*)?\)")
 

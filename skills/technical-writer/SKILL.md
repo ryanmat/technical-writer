@@ -25,7 +25,7 @@ removal belongs to `humanize` and house-voice review to `writing-style-review`. 
 Every reference this skill relies on is a file beside it. Read them when the workflow says to,
 not all at once:
 
-- [references/taxonomy.md](references/taxonomy.md): the 24 types, their domains, defaults, and template status, and the three kinds other skills own.
+- [references/taxonomy.md](references/taxonomy.md): the 24 types, their domains, defaults, and template status, and the four kinds other skills own.
 - [references/audiences.md](references/audiences.md): the seven audiences and what each changes.
 - [references/style-rules.md](references/style-rules.md): every prose rule with its source.
 - [references/procedure-rules.md](references/procedure-rules.md): the rules for numbered steps.
@@ -44,7 +44,7 @@ Read the taxonomy and name one document type before writing anything. Classify b
 reader will do with the page, not by the words in the request. Then apply the first rule
 that fits:
 
-- The type is one of the three another skill owns (README and PR body, `github`; penetration test or assessment report, `pentest-report`): name the owner and stop. No partial draft.
+- The type is one of the four another skill owns (README and PR body, `github`; penetration test or assessment report, `pentest-report`; a project write-up for peers, the post about a project and its Slack, LinkedIn or Reddit cuts, `project-writeup`): name the owner and stop. No partial draft. A walkthrough page inside the project's own repository is this skill's tutorial type, not a write-up.
 - Two types with different section structures both fit: ask one question that names both types and what differs between them. Do not draft until it is answered.
 - The request needs two types: produce two documents, or state the split in the reply before drafting. Never one page that mixes types.
 - The type is not in the taxonomy: say so, offer the nearest type, and draft under the house style rules only if the user accepts.

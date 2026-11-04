@@ -7,7 +7,7 @@ Most documentation requests arrive as "write the docs for X". The skill does not
 
 ## Classification
 
-Every request becomes one of 24 document types across six domains: user documentation, engineering and architecture, API reference text, AI governance, security, and privacy. The skill classifies by what the reader will do with the page, not by the words in the request. A request for "docs for the alert rule feature" is a concept (what it is), a task (how to set one up), a reference (every field), or several of these as separate pages. When two types with different structures both fit, the skill asks one question naming both. When a request needs two types, it produces two documents. Three kinds of document belong to other skills and are declined by name: README and pull request bodies, and penetration test or assessment reports.
+Every request becomes one of 24 document types across six domains: user documentation, engineering and architecture, API reference text, AI governance, security, and privacy. The skill classifies by what the reader will do with the page, not by the words in the request. A request for "docs for the alert rule feature" is a concept (what it is), a task (how to set one up), a reference (every field), or several of these as separate pages. When two types with different structures both fit, the skill asks one question naming both. When a request needs two types, it produces two documents. Four kinds of document belong to other skills and are declined by name: project write-ups for peers (the post about a project and its channel cuts), README and pull request bodies, and penetration test or assessment reports.
 
 ## The audience parameter
 

@@ -62,7 +62,7 @@ The checker, `scripts/check_structure.py`, reads that same front matter. The ski
 
 Exit 0 means the document passes. Exit 1 comes with a JSON list of findings, each with a code, a severity, a line, and the rule broken; [troubleshooting](docs/troubleshooting.md) explains every code. Exit 2 means the checker itself did not run. `scripts/lint.sh <draft.md>` adds `vale` and `markdownlint` when they are on the path and says which were missing.
 
-The skill reads your request, the files you attach, and its own reference files. It fetches nothing from the network, installs nothing, and changes no source you give it. It declines README files, pull request bodies, and penetration test reports, which belong to other tools.
+The skill reads your request, the files you attach, and its own reference files. It fetches nothing from the network, installs nothing, and changes no source you give it. It declines README files, pull request bodies, penetration test reports, and project write-ups for peers, which belong to other tools.
 
 ## Evals
 
